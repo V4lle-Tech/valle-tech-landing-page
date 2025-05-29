@@ -6,7 +6,7 @@ export const messages = {
       about: 'Acerca',
       portfolio: 'Portafolio',
       contact: 'Contacto',
-      cta: 'Contáctanos',
+      cta: 'Contáctame',
       menu: {
         open: 'Abrir menú principal',
         close: 'Cerrar menú principal'
@@ -15,19 +15,19 @@ export const messages = {
     hero: {
       title: 'Transformando Ideas en ',
       title2: 'Realidad Digital',
-      subtitle: 'Desarrollamos soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.',
-      services: 'Nuestros Servicios',
-      trusted: 'Confiado por más de 100 empresas',
+      subtitle: 'Desarrollo soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.',
+      services: 'Mis Servicios',
+      trusted: 'Confiado por más de 50 clientes',
       stars: 'Servicios calificados con 5 estrellas',
       satisfaction: '97% de satisfacción de clientes',
-      basedOn: 'Basado en más de 200 proyectos'
+      basedOn: 'Basado en más de 100 proyectos'
     },
     services: {
-      title: 'Nuestros Servicios',
-      subtitle: 'Ofrecemos soluciones tecnológicas integrales para impulsar tu negocio.',
+      title: 'Mis Servicios',
+      subtitle: 'Ofrezco soluciones tecnológicas integrales para impulsar tu negocio.',
       benefits: 'Beneficios clave:',
       learnMore: 'Saber más',
-      cta: 'Habla con nosotros',
+      cta: 'Hablemos de tu proyecto',
       'software development': {
         title: 'Desarrollo de Software',
         desc: 'Soluciones a medida para tus necesidades y retos de negocio.',
@@ -54,52 +54,52 @@ export const messages = {
         benefits: {
           0: 'Currículum personalizado',
           1: 'Aprendizaje práctico',
-          2: 'Instructores expertos',
+          2: 'Instructor experto',
           3: 'Soporte post-capacitación'
         }
       }
     },
     about: {
-      title: 'Sobre V4lle Tech',
-      subtitle: 'Conoce nuestra historia, misión y equipo',
-      storyTitle: 'Nuestra Historia',
-      story: 'Fundada en 2020, V4lle Tech nació con la misión de acercar la tecnología a los negocios. De un pequeño equipo a un socio tecnológico integral.',
-      missionTitle: 'Nuestra Misión',
-      mission: 'Empoderar empresas con soluciones tecnológicas innovadoras que resuelvan problemas complejos y generen valor duradero.',
-      quote: 'Combinamos experiencia técnica con resolución creativa de problemas para entregar soluciones de software excepcionales.',
+      title: 'Sobre Mí',
+      subtitle: 'Conoce mi experiencia y enfoque',
+      storyTitle: 'Mi Historia',
+      story: 'Con más de 15 años de experiencia en el desarrollo de software, me especializo en crear soluciones tecnológicas que resuelven problemas reales y generan valor para mis clientes.',
+      missionTitle: 'Mi Misión',
+      mission: 'Empoderar negocios con soluciones tecnológicas innovadoras que resuelvan problemas complejos y generen valor duradero.',
+      quote: 'Combinando experiencia técnica con resolución creativa de problemas para entregar soluciones de software excepcionales.',
       ceo: {
-        name: 'Sarah Johnson',
-        title: 'Fundadora y CEO'
+        name: 'Antonio V4lle',
+        title: 'Desarrollador de Software Senior'
       },
-      valuesTitle: 'Nuestros Valores',
+      valuesTitle: 'Mis Valores',
       values: {
         innovation: {
           title: 'Innovación',
-          desc: 'Siempre buscamos nuevas soluciones y enfoques.'
+          desc: 'Siempre busco nuevas soluciones y enfoques.'
         },
         excellence: {
           title: 'Excelencia',
-          desc: 'Buscamos la máxima calidad en todo lo que entregamos.'
+          desc: 'Busco la máxima calidad en todo lo que entrego.'
         },
         integrity: {
           title: 'Integridad',
-          desc: 'Relaciones honestas y transparentes con nuestros clientes.'
+          desc: 'Mantengo relaciones honestas y transparentes con mis clientes.'
         },
         collaboration: {
           title: 'Colaboración',
-          desc: 'Trabajamos como socios en el éxito de nuestros clientes.'
+          desc: 'Trabajo como socio en el éxito de mis clientes.'
         }
       },
       achievements: {
         0: 'Proyectos completados',
         1: 'Clientes satisfechos',
-        2: 'Premios de la industria',
-        3: 'Años de excelencia'
+        2: 'Certificaciones técnicas',
+        3: 'Años de experiencia'
       }
     },
     portfolio: {
       title: 'Portafolio',
-      subtitle: 'Explora nuestros proyectos y casos de éxito',
+      subtitle: 'Explora mis proyectos y casos de éxito',
       viewDetails: 'Ver detalles del proyecto',
       cta: 'Inicia tu proyecto',
       projectOverview: 'Descripción del Proyecto',
@@ -153,7 +153,7 @@ export const messages = {
     contact: {
       title: 'Contacto',
       subtitle: '¿Tienes un proyecto en mente? Hablemos.',
-      sendMessage: 'Envíanos un mensaje',
+      sendMessage: 'Envíame un mensaje',
       name: 'Tu nombre*',
       email: 'Correo electrónico*',
       phone: 'Teléfono',
@@ -168,31 +168,31 @@ export const messages = {
         phone: 'Teléfono',
         address: 'Dirección'
       },
-      location: 'Nuestra ubicación',
+      location: 'Mi ubicación',
       placeholders: {
         name: 'Juan Pérez',
         email: 'juan@ejemplo.com',
         phone: '+52 (55) 1234-5678',
         subject: 'Consulta de Proyecto',
-        message: 'Cuéntanos sobre tu proyecto y requerimientos...'
+        message: 'Cuéntame sobre tu proyecto y requerimientos...'
       },
-      followUs: 'Síguenos'
+      followUs: 'Sígueme'
     },
     footer: {
       description: {
-        'es-MX': 'Transformando ideas en soluciones digitales innovadoras. Especialistas en desarrollo de software, consultoría tecnológica y transformación digital.',
-        'en-EU': 'Transforming ideas into innovative digital solutions. Specialists in software development, technology consulting, and digital transformation.'
+        'es-MX': 'Transformando ideas en soluciones digitales innovadoras. Especialista en desarrollo de software, consultoría tecnológica y transformación digital.',
+        'en-EU': 'Transforming ideas into innovative digital solutions. Specialist in software development, technology consulting, and digital transformation.'
       },
       sections: {
         company: {
           title: {
-            'es-MX': 'Compañía',
-            'en-EU': 'Company'
+            'es-MX': 'Enlaces',
+            'en-EU': 'Links'
           },
           links: {
             about: {
-              'es-MX': 'Nosotros',
-              'en-EU': 'About'
+              'es-MX': 'Sobre Mí',
+              'en-EU': 'About Me'
             },
             services: {
               'es-MX': 'Servicios',
@@ -269,7 +269,7 @@ export const messages = {
       }
     },
     cookieConsent: {
-      message: 'Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra',
+      message: 'Utilizo cookies para mejorar tu experiencia. Al continuar navegando, aceptas mi',
       learnMore: 'política de cookies',
       accept: 'Aceptar',
       decline: 'Rechazar',
@@ -287,7 +287,7 @@ export const messages = {
         },
         analytics: {
           title: 'Cookies Analíticas',
-          desc: 'Estas cookies nos ayudan a entender cómo interactúas con nuestro sitio web.'
+          desc: 'Estas cookies me ayudan a entender cómo interactúas con mi sitio web.'
         }
       }
     }
@@ -308,16 +308,16 @@ export const messages = {
     hero: {
       title: 'Transforming Ideas Into ',
       title2: 'Digital Reality',
-      subtitle: 'We develop innovative technology solutions that drive your business growth.',
-      services: 'Our Services',
-      trusted: 'Trusted by 100+ businesses',
+      subtitle: 'I develop innovative technology solutions that drive your business growth.',
+      services: 'My Services',
+      trusted: 'Trusted by 50+ clients',
       stars: '5-star rated services',
       satisfaction: '97% Client Satisfaction',
-      basedOn: 'Based on 200+ projects'
+      basedOn: 'Based on 100+ projects'
     },
     services: {
-      title: 'Our Services',
-      subtitle: 'We offer comprehensive technology solutions to help your business grow.',
+      title: 'My Services',
+      subtitle: 'I offer comprehensive technology solutions to help your business grow.',
       benefits: 'Key Benefits:',
       learnMore: 'Learn More',
       cta: 'Discuss Your Project',
@@ -347,52 +347,52 @@ export const messages = {
         benefits: {
           0: 'Customized curriculum',
           1: 'Hands-on learning',
-          2: 'Expert instructors',
+          2: 'Expert instructor',
           3: 'Post-training support'
         }
       }
     },
     about: {
-      title: 'About V4lle Tech',
-      subtitle: 'Learn about our journey, mission, and team',
-      storyTitle: 'Our Story',
-      story: 'Founded in 2020, V4lle Tech started with a mission to bridge technology and business. From a small team to a comprehensive tech partner.',
-      missionTitle: 'Our Mission',
+      title: 'About Me',
+      subtitle: 'Learn about my experience and approach',
+      storyTitle: 'My Story',
+      story: 'With over 15 years of experience in software development, I specialize in creating technology solutions that solve real problems and generate value for my clients.',
+      missionTitle: 'My Mission',
       mission: 'To empower businesses through innovative technology solutions that solve complex problems and create lasting value.',
-      quote: 'We combine technical expertise with creative problem-solving to deliver exceptional software solutions.',
+      quote: 'Combining technical expertise with creative problem-solving to deliver exceptional software solutions.',
       ceo: {
-        name: 'Sarah Johnson',
-        title: 'Founder & CEO'
+        name: 'Antonio V4lle',
+        title: 'Senior Software Developer'
       },
-      valuesTitle: 'Our Core Values',
+      valuesTitle: 'My Core Values',
       values: {
         innovation: {
           title: 'Innovation',
-          desc: 'We constantly push boundaries to discover new solutions.'
+          desc: 'I constantly push boundaries to discover new solutions.'
         },
         excellence: {
           title: 'Excellence',
-          desc: 'We strive for the highest quality in everything we deliver.'
+          desc: 'I strive for the highest quality in everything I deliver.'
         },
         integrity: {
           title: 'Integrity',
-          desc: 'We maintain honest and transparent relationships with our clients.'
+          desc: 'I maintain honest and transparent relationships with my clients.'
         },
         collaboration: {
           title: 'Collaboration',
-          desc: 'We work together with our clients as partners in their success.'
+          desc: 'I work together with my clients as partners in their success.'
         }
       },
       achievements: {
         0: 'Projects Completed',
         1: 'Happy Clients',
-        2: 'Industry Awards',
-        3: 'Years of Excellence'
+        2: 'Technical Certifications',
+        3: 'Years of Experience'
       }
     },
     portfolio: {
-      title: 'Our Portfolio',
-      subtitle: 'Explore our recent projects and success stories',
+      title: 'My Portfolio',
+      subtitle: 'Explore my recent projects and success stories',
       viewDetails: 'View Project Details',
       cta: 'Start Your Project',
       projectOverview: 'Project Overview',
@@ -445,8 +445,8 @@ export const messages = {
     },
     contact: {
       title: 'Get in Touch',
-      subtitle: 'Have a project in mind? Let\'s discuss how we can help you achieve your goals.',
-      sendMessage: 'Send Us a Message',
+      subtitle: 'Have a project in mind? Let\'s discuss how I can help you achieve your goals.',
+      sendMessage: 'Send Me a Message',
       name: 'Your Name*',
       email: 'Email Address*',
       phone: 'Phone',
@@ -461,31 +461,31 @@ export const messages = {
         phone: 'Phone',
         address: 'Address'
       },
-      location: 'Our Location',
+      location: 'My Location',
       placeholders: {
         name: 'John Doe',
         email: 'john@example.com',
         phone: '+1 (555) 123-4567',
         subject: 'Project Inquiry',
-        message: 'Tell us about your project and requirements...'
+        message: 'Tell me about your project and requirements...'
       },
-      followUs: 'Follow Us'
+      followUs: 'Follow Me'
     },
     footer: {
       description: {
-        'es-MX': 'Transformando ideas en soluciones digitales innovadoras. Especialistas en desarrollo de software, consultoría tecnológica y transformación digital.',
-        'en-EU': 'Transforming ideas into innovative digital solutions. Specialists in software development, technology consulting, and digital transformation.'
+        'es-MX': 'Transformando ideas en soluciones digitales innovadoras. Especialista en desarrollo de software, consultoría tecnológica y transformación digital.',
+        'en-EU': 'Transforming ideas into innovative digital solutions. Specialist in software development, technology consulting, and digital transformation.'
       },
       sections: {
         company: {
           title: {
-            'es-MX': 'Compañía',
-            'en-EU': 'Company'
+            'es-MX': 'Enlaces',
+            'en-EU': 'Links'
           },
           links: {
             about: {
-              'es-MX': 'Nosotros',
-              'en-EU': 'About'
+              'es-MX': 'Sobre Mí',
+              'en-EU': 'About Me'
             },
             services: {
               'es-MX': 'Servicios',
@@ -562,7 +562,7 @@ export const messages = {
       }
     },
     cookieConsent: {
-      message: 'We use cookies to enhance your experience. By continuing to browse, you accept our',
+      message: 'I use cookies to enhance your experience. By continuing to browse, you accept my',
       learnMore: 'cookie policy',
       accept: 'Accept',
       decline: 'Decline',
@@ -576,11 +576,11 @@ export const messages = {
         },
         preferences: {
           title: 'Preference Cookies',
-          desc: 'These cookies allow us to remember your preferences such as selected language.'
+          desc: 'These cookies allow me to remember your preferences such as selected language.'
         },
         analytics: {
           title: 'Analytics Cookies',
-          desc: 'These cookies help us understand how you interact with our website.'
+          desc: 'These cookies help me understand how you interact with my website.'
         }
       }
     }
