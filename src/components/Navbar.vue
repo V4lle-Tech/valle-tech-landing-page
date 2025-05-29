@@ -190,21 +190,25 @@ onUnmounted(() => {
         </button>
       </div>
     </div>
-    
-    <!-- Mobile Navigation Menu -->
+  </header>
+
+  <!-- Mobile Navigation Menu y Backdrop fuera del header -->
+  <!-- Backdrop -->
+  <div 
+    v-if="mobileMenuOpen"
+    class="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-40"
+    @click="closeMobileMenu"
+  ></div>
+  <!-- Sidebar animado -->
+  <transition name="sidebar-slide">
     <div 
       v-if="mobileMenuOpen"
-      class="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-40"
-      @click="closeMobileMenu"
-    ></div>
-    
-    <div 
-      v-if="mobileMenuOpen"
-      class="md:hidden fixed right-0 top-0 bottom-0 w-64 bg-white z-50 shadow-xl transform transition-transform duration-300 ease-in-out"
+      class="md:hidden fixed right-0 top-0 bottom-0 w-64 h-full bg-white z-50 shadow-xl flex flex-col transform transition-transform duration-300 ease-in-out"
+      :class="{'translate-x-0': mobileMenuOpen, 'translate-x-full': !mobileMenuOpen}"
     >
-      <div class="p-5">
+      <div class="p-5 h-full bg-white">
         <div class="flex items-center justify-between mb-6">
-          <div class="text-xl font-bold text-primary-800">V4lle<span class="text-secondary-600">Tech</span></div>
+          <img src="/v4lle-tech-v4.png" alt="V4lle Tech Logo" class="h-8 w-auto" />
           <button 
             class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
             @click="closeMobileMenu"
@@ -265,7 +269,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-  </header>
+  </transition>
 </template>
 
 <style scoped>
@@ -275,5 +279,21 @@ onUnmounted(() => {
 }
 .animate-fade-in {
   animation: fade-in 0.18s ease;
+}
+
+/* Sidebar slide animation */
+.sidebar-slide-enter-active,
+.sidebar-slide-leave-active {
+  transition: transform .5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+}
+.sidebar-slide-enter-from,
+.sidebar-slide-leave-to {
+  transform: translateX(100%);
+  opacity: 0.5;
+}
+.sidebar-slide-enter-to,
+.sidebar-slide-leave-from {
+  transform: translateX(0);
+  opacity: 1;
 }
 </style>
