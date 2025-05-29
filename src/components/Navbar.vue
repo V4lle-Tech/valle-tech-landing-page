@@ -1,17 +1,58 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
 const isScrolled = ref(false)
 const mobileMenuOpen = ref(false)
 
+// useI18n composition API
+const { locale } = useI18n()
+
+// Nuevo estado para el menú de idioma
+const languageMenuOpen = ref(false)
+const languageOptions = [
+  {
+    code: 'es-MX',
+    label: 'Español',
+    short: 'ES',
+    img: '/i18n/es-MX.png'
+  },
+  {
+    code: 'en-EU',
+    label: 'English',
+    short: 'EN',
+    img: '/i18n/en-EU.png'
+  }
+]
+
+function selectLanguage(code: string) {
+  locale.value = code
+  languageMenuOpen.value = false
+}
+
+function currentLanguage() {
+  return languageOptions.find(opt => opt.code === locale.value) || languageOptions[0]
+}
+
+function handleClickOutside(event: MouseEvent) {
+  const menu = document.getElementById('lang-menu')
+  const menuMobile = document.getElementById('lang-menu-mobile')
+  if (
+    (menu && !menu.contains(event.target as Node)) &&
+    (menuMobile && !menuMobile.contains(event.target as Node))
+  ) {
+    languageMenuOpen.value = false
+  }
+}
+
 const navLinks = [
-  { key: 'home', path: '#home' },
-  { key: 'services', path: '#services' },
-  { key: 'about', path: '#about' },
-  { key: 'portfolio', path: '#portfolio' },
-  { key: 'contact', path: '#contact' }
+  { key: 'home', path: '/#home' },
+  { key: 'services', path: '/#services' },
+  { key: 'about', path: '/#about' },
+  { key: 'portfolio', path: '/#portfolio' },
+  { key: 'contact', path: '/#contact' }
 ]
 
 const activeSection = ref('home')
@@ -57,11 +98,13 @@ const navbarClasses = computed(() => {
 })
 
 onMounted(() => {
+  window.addEventListener('click', handleClickOutside)
   window.addEventListener('scroll', checkScroll)
   checkScroll()
 })
 
 onUnmounted(() => {
+  window.removeEventListener('click', handleClickOutside)
   window.removeEventListener('scroll', checkScroll)
 })
 </script>
@@ -72,44 +115,63 @@ onUnmounted(() => {
       <div class="flex justify-between items-center py-4">
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <a href="#home" class="flex items-center">
+          <router-link to="/#home" class="flex items-center">
             <!-- <span class="text-2xl font-bold text-primary-800">V4lle<span class="text-secondary-600">Tech</span></span> -->
             <img src="/v4lle-tech-v4.png" alt="V4lle Tech Logo" class="h-8 w-auto" />
-          </a>
+          </router-link>
         </div>
         
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8">
-          <a 
+          <router-link 
             v-for="link in navLinks" 
             :key="link.key"
-            :href="link.path"
+            :to="link.path"
             :class="[
               'text-sm font-medium transition-colors duration-200 relative',
-              activeSection === link.path.substring(1) 
+              activeSection === link.path.substring(2) 
                 ? 'text-primary-700' 
                 : 'text-gray-800 hover:text-primary-700'
             ]"
           >
             {{ $t('navbar.' + link.key) }}
             <span 
-              v-if="activeSection === link.path.substring(1)"
+              v-if="activeSection === link.path.substring(2)"
               class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 transform transition-transform duration-200"
             ></span>
-          </a>
+          </router-link>
         </nav>
         
         <!-- CTA Button -->
         <div class="hidden md:block">
-          <a href="#contact" class="btn-primary">{{ $t('navbar.cta') }}</a>
+          <router-link to="/#contact" class="btn-primary">{{ $t('navbar.cta') }}</router-link>
         </div>
         
-        <!-- Language Switcher -->
-        <div class="ml-4">
-          <select v-model="$i18n.locale" class="border rounded px-2 py-1 text-sm">
-            <option value="es-MX">ES</option>
-            <option value="en-EU">EN</option>
-          </select>
+        <!-- Language Switcher Mejorado SOLO EN DESKTOP/TABLET -->
+        <div class="ml-4 relative hidden md:block" id="lang-menu">
+          <button
+            class="flex items-center px-2 py-1 border rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            @click.stop="languageMenuOpen = !languageMenuOpen"
+            aria-haspopup="true"
+            :aria-expanded="languageMenuOpen"
+          >
+            <img :src="currentLanguage().img" alt="Language Flag" class="h-5 w-auto rounded-sm" />
+            <span class="ml-2 font-semibold">{{ currentLanguage().short }}</span>
+            <svg class="ml-1 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div v-if="languageMenuOpen" class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg z-50 animate-fade-in">
+            <ul>
+              <li v-for="opt in languageOptions" :key="opt.code">
+                <button
+                  class="flex items-center w-full px-3 py-2 hover:bg-primary-50 focus:bg-primary-100 transition-colors"
+                  @click="selectLanguage(opt.code)"
+                >
+                  <img :src="opt.img" alt="Language Flag" class="h-5 w-auto rounded-sm" />
+                  <span class="ml-2">{{ opt.label }}</span>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
         
         <!-- Mobile Menu Button -->
@@ -155,26 +217,63 @@ onUnmounted(() => {
         </div>
         
         <nav class="flex flex-col space-y-4">
-          <a 
+          <router-link 
             v-for="link in navLinks" 
             :key="link.key"
-            :href="link.path"
+            :to="link.path"
             :class="[
               'px-3 py-2 text-base font-medium rounded-md',
-              activeSection === link.path.substring(1) 
+              activeSection === link.path.substring(2) 
                 ? 'bg-primary-50 text-primary-700' 
                 : 'text-gray-800 hover:bg-gray-50 hover:text-primary-700'
             ]"
             @click="closeMobileMenu"
           >
             {{ $t('navbar.' + link.key) }}
-          </a>
+          </router-link>
         </nav>
         
         <div class="mt-8">
-          <a href="#contact" @click="closeMobileMenu" class="w-full btn-primary block text-center">{{ $t('navbar.cta') }}</a>
+          <router-link to="/#contact" @click="closeMobileMenu" class="w-full btn-primary block text-center">{{ $t('navbar.cta') }}</router-link>
+        </div>
+        
+        <!-- Selector de idioma SOLO EN MOBILE -->
+        <div class="mt-8 relative md:hidden" id="lang-menu-mobile">
+          <button
+            class="flex items-center px-2 py-1 border rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 w-full"
+            @click.stop="languageMenuOpen = !languageMenuOpen"
+            aria-haspopup="true"
+            :aria-expanded="languageMenuOpen"
+          >
+            <img :src="currentLanguage().img" alt="Language Flag" class="h-5 w-auto rounded-sm" />
+            <span class="ml-2 font-semibold">{{ currentLanguage().short }}</span>
+            <svg class="ml-1 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div v-if="languageMenuOpen" class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg z-50 animate-fade-in">
+            <ul>
+              <li v-for="opt in languageOptions" :key="opt.code">
+                <button
+                  class="flex items-center w-full px-3 py-2 hover:bg-primary-50 focus:bg-primary-100 transition-colors"
+                  @click="selectLanguage(opt.code)"
+                >
+                  <img :src="opt.img" alt="Language Flag" class="h-5 w-auto rounded-sm" />
+                  <span class="ml-2">{{ opt.label }}</span>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </header>
 </template>
+
+<style scoped>
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.18s ease;
+}
+</style>

@@ -23,12 +23,12 @@ defineProps<{
           </p>
           
           <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <a href="#services" class="btn bg-secondary-600 hover:bg-secondary-700 text-white">
+            <router-link to="/#services" class="btn bg-secondary-600 hover:bg-secondary-700 text-white">
               {{ $t('hero.services') }}
-            </a>
-            <a href="#contact" class="btn bg-transparent border-2 border-white hover:bg-white hover:text-primary-800 text-white transition-colors duration-300">
+            </router-link>
+            <router-link to="/#contact" class="btn bg-transparent border-2 border-white hover:bg-white hover:text-primary-800 text-white transition-colors duration-300">
               {{ $t('navbar.cta') }}
-            </a>
+            </router-link>
           </div>
           
           <div class="mt-12 flex items-center space-x-8">

@@ -17,13 +17,24 @@ const i18n = createI18n({
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
-    { path: '/', component: Home }
+    { 
+      path: '/', 
+      component: Home,
+      children: [
+        { path: 'home', component: Home },
+        { path: 'services', component: Home },
+        { path: 'about', component: Home },
+        { path: 'portfolio', component: Home },
+        { path: 'contact', component: Home }
+      ]
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return {
         el: to.hash,
         behavior: 'smooth',
+        top: 80 // Offset para el navbar fijo
       }
     } else if (savedPosition) {
       return savedPosition
