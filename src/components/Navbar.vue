@@ -31,10 +31,14 @@ function selectLanguage(code: string) {
   locale.value = code
   languageMenuOpen.value = false
   
-  // Actualizar la URL con el nuevo idioma
-  const currentPath = router.currentRoute.value.path
-  const newPath = currentPath.replace(/\/[^/]+/, `/${code}`)
-  router.push(newPath)
+  // Obtener la sección actual del hash
+  const currentHash = window.location.hash.slice(1) || 'home'
+  
+  // Actualizar la URL con el nuevo idioma y mantener el hash
+  router.push({ 
+    path: `/${code}`,
+    hash: `#${currentHash}`
+  })
   
   // Guardar el idioma seleccionado si se aceptaron las cookies de preferencias
   const cookieConsent = localStorage.getItem('cookieConsent')
@@ -62,11 +66,11 @@ function handleClickOutside(event: MouseEvent) {
 }
 
 const navLinks = [
-  { key: 'home', path: '/:lang/home' },
-  { key: 'services', path: '/:lang/services' },
-  { key: 'about', path: '/:lang/about' },
-  { key: 'portfolio', path: '/:lang/portfolio' },
-  { key: 'contact', path: '/:lang/contact' }
+  { key: 'home', section: 'home' },
+  { key: 'services', section: 'services' },
+  { key: 'about', section: 'about' },
+  { key: 'portfolio', section: 'portfolio' },
+  { key: 'contact', section: 'contact' }
 ]
 
 const activeSection = ref('home')
@@ -111,6 +115,32 @@ const navbarClasses = computed(() => {
   ]
 })
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const offset = 80 // Ajusta este valor según el alto de tu navbar
+    const elementPosition = element.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - offset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
+  }
+}
+
+const handleNavigation = (sectionId: string) => {
+  // Primero actualizamos la URL
+  const currentPath = router.currentRoute.value.path
+  const newPath = `${currentPath.split('/').slice(0, -1).join('/')}/${sectionId}`
+  router.push(newPath)
+  
+  // Luego hacemos el scroll suave
+  setTimeout(() => {
+    scrollToSection(sectionId)
+  }, 100)
+}
+
 onMounted(() => {
   window.addEventListener('click', handleClickOutside)
   window.addEventListener('scroll', checkScroll)
@@ -140,17 +170,20 @@ onUnmounted(() => {
           <router-link 
             v-for="link in navLinks" 
             :key="link.key"
-            :to="link.path.replace(':lang', locale)"
+            :to="{ 
+              path: `/${locale}`,
+              hash: `#${link.section}`
+            }"
             :class="[
-              'text-sm font-medium transition-colors duration-200 relative',
-              activeSection === link.path.split('/').pop() 
+              'text-sm font-medium transition-colors duration-200 relative cursor-pointer',
+              activeSection === link.section 
                 ? 'text-primary-700' 
                 : 'text-gray-800 hover:text-primary-700'
             ]"
           >
             {{ $t('navbar.' + link.key) }}
             <span 
-              v-if="activeSection === link.path.split('/').pop()"
+              v-if="activeSection === link.section"
               class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 transform transition-transform duration-200"
             ></span>
           </router-link>
@@ -238,10 +271,13 @@ onUnmounted(() => {
           <router-link 
             v-for="link in navLinks" 
             :key="link.key"
-            :to="link.path.replace(':lang', locale)"
+            :to="{ 
+              path: `/${locale}/${link.section}`,
+              hash: `#${link.section}`
+            }"
             :class="[
-              'px-3 py-2 text-base font-medium rounded-md',
-              activeSection === link.path.split('/').pop() 
+              'px-3 py-2 text-base font-medium rounded-md cursor-pointer',
+              activeSection === link.section 
                 ? 'bg-primary-50 text-primary-700' 
                 : 'text-gray-800 hover:bg-gray-50 hover:text-primary-700'
             ]"
@@ -309,5 +345,11 @@ onUnmounted(() => {
 .sidebar-slide-leave-from {
   transform: translateX(0);
   opacity: 1;
+}
+
+/* Añadir estilos para el scroll suave */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Ajusta este valor según el alto de tu navbar */
 }
 </style>

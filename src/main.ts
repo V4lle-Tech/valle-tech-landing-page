@@ -29,19 +29,18 @@ const i18n = createI18n({
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { 
-      path: '/', 
-      redirect: to => `/${getSavedLanguage()}/home`
+    {
+      path: '/',
+      redirect: () => `/${getSavedLanguage()}`
     },
-    { 
+    {
       path: '/:lang',
-      component: Home,
+      component: App,
       children: [
-        { path: 'home', component: Home },
-        { path: 'services', component: Home },
-        { path: 'about', component: Home },
-        { path: 'portfolio', component: Home },
-        { path: 'contact', component: Home }
+        {
+          path: '',
+          component: Home
+        }
       ]
     }
   ],
@@ -50,13 +49,13 @@ const router = createRouter({
       return {
         el: to.hash,
         behavior: 'smooth',
-        top: 80 // Offset para el navbar fijo
+        top: 80 // Ajuste para el navbar fijo
       }
-    } else if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
     }
+    if (savedPosition) {
+      return savedPosition
+    }
+    return { top: 0 }
   }
 })
 
