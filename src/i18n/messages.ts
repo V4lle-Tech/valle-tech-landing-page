@@ -272,7 +272,24 @@ export const messages = {
       message: 'Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra',
       learnMore: 'política de cookies',
       accept: 'Aceptar',
-      decline: 'Rechazar'
+      decline: 'Rechazar',
+      preferences: {
+        title: 'Preferencias de Cookies',
+        back: 'Volver',
+        save: 'Guardar Preferencias',
+        necessary: {
+          title: 'Cookies Necesarias',
+          desc: 'Estas cookies son esenciales para el funcionamiento del sitio web y no pueden ser desactivadas.'
+        },
+        preferences: {
+          title: 'Cookies de Preferencias',
+          desc: 'Estas cookies permiten recordar tus preferencias como el idioma seleccionado.'
+        },
+        analytics: {
+          title: 'Cookies Analíticas',
+          desc: 'Estas cookies nos ayudan a entender cómo interactúas con nuestro sitio web.'
+        }
+      }
     }
   },
   'en-EU': {
@@ -548,7 +565,24 @@ export const messages = {
       message: 'We use cookies to enhance your experience. By continuing to browse, you accept our',
       learnMore: 'cookie policy',
       accept: 'Accept',
-      decline: 'Decline'
+      decline: 'Decline',
+      preferences: {
+        title: 'Cookie Preferences',
+        back: 'Back',
+        save: 'Save Preferences',
+        necessary: {
+          title: 'Necessary Cookies',
+          desc: 'These cookies are essential for the website to function and cannot be disabled.'
+        },
+        preferences: {
+          title: 'Preference Cookies',
+          desc: 'These cookies allow us to remember your preferences such as selected language.'
+        },
+        analytics: {
+          title: 'Analytics Cookies',
+          desc: 'These cookies help us understand how you interact with our website.'
+        }
+      }
     }
   }
 } 

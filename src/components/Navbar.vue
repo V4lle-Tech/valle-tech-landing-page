@@ -30,6 +30,20 @@ const languageOptions = [
 function selectLanguage(code: string) {
   locale.value = code
   languageMenuOpen.value = false
+  
+  // Actualizar la URL con el nuevo idioma
+  const currentPath = router.currentRoute.value.path
+  const newPath = currentPath.replace(/\/[^/]+/, `/${code}`)
+  router.push(newPath)
+  
+  // Guardar el idioma seleccionado si se aceptaron las cookies de preferencias
+  const cookieConsent = localStorage.getItem('cookieConsent')
+  if (cookieConsent) {
+    const preferences = JSON.parse(cookieConsent)
+    if (preferences.preferences) {
+      localStorage.setItem('userLanguage', code)
+    }
+  }
 }
 
 function currentLanguage() {
@@ -48,11 +62,11 @@ function handleClickOutside(event: MouseEvent) {
 }
 
 const navLinks = [
-  { key: 'home', path: '/#home' },
-  { key: 'services', path: '/#services' },
-  { key: 'about', path: '/#about' },
-  { key: 'portfolio', path: '/#portfolio' },
-  { key: 'contact', path: '/#contact' }
+  { key: 'home', path: '/:lang/#home' },
+  { key: 'services', path: '/:lang/#services' },
+  { key: 'about', path: '/:lang/#about' },
+  { key: 'portfolio', path: '/:lang/#portfolio' },
+  { key: 'contact', path: '/:lang/#contact' }
 ]
 
 const activeSection = ref('home')
@@ -126,17 +140,17 @@ onUnmounted(() => {
           <router-link 
             v-for="link in navLinks" 
             :key="link.key"
-            :to="link.path"
+            :to="link.path.replace(':lang', locale)"
             :class="[
               'text-sm font-medium transition-colors duration-200 relative',
-              activeSection === link.path.substring(2) 
+              activeSection === link.path.split('/').pop() 
                 ? 'text-primary-700' 
                 : 'text-gray-800 hover:text-primary-700'
             ]"
           >
             {{ $t('navbar.' + link.key) }}
             <span 
-              v-if="activeSection === link.path.substring(2)"
+              v-if="activeSection === link.path.split('/').pop()"
               class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 transform transition-transform duration-200"
             ></span>
           </router-link>
@@ -224,10 +238,10 @@ onUnmounted(() => {
           <router-link 
             v-for="link in navLinks" 
             :key="link.key"
-            :to="link.path"
+            :to="link.path.replace(':lang', locale)"
             :class="[
               'px-3 py-2 text-base font-medium rounded-md',
-              activeSection === link.path.substring(2) 
+              activeSection === link.path.split('/').pop() 
                 ? 'bg-primary-50 text-primary-700' 
                 : 'text-gray-800 hover:bg-gray-50 hover:text-primary-700'
             ]"

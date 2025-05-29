@@ -6,9 +6,21 @@ import App from './App.vue'
 import Home from './views/Home.vue'
 import { messages } from './i18n/messages'
 
+// Obtener el idioma guardado o usar el predeterminado
+const getSavedLanguage = () => {
+  const cookieConsent = localStorage.getItem('cookieConsent')
+  if (cookieConsent) {
+    const preferences = JSON.parse(cookieConsent)
+    if (preferences.preferences) {
+      return localStorage.getItem('userLanguage') || 'es-MX'
+    }
+  }
+  return 'es-MX'
+}
+
 const i18n = createI18n({
   legacy: false,
-  locale: 'es-MX',
+  locale: getSavedLanguage(),
   fallbackLocale: 'en-EU',
   messages
 })
@@ -19,6 +31,10 @@ const router = createRouter({
   routes: [
     { 
       path: '/', 
+      redirect: to => `/${getSavedLanguage()}/#home`
+    },
+    { 
+      path: '/:lang',
       component: Home,
       children: [
         { path: 'home', component: Home },
@@ -42,6 +58,23 @@ const router = createRouter({
       return { top: 0 }
     }
   }
+})
+
+// Middleware para manejar el cambio de idioma
+router.beforeEach((to, from, next) => {
+  const lang = typeof to.params.lang === 'string' ? to.params.lang : null
+  if (lang && ['es-MX', 'en-EU'].includes(lang)) {
+    i18n.global.locale.value = lang as 'es-MX' | 'en-EU'
+    // Guardar el idioma si se aceptaron las cookies de preferencias
+    const cookieConsent = localStorage.getItem('cookieConsent')
+    if (cookieConsent) {
+      const preferences = JSON.parse(cookieConsent)
+      if (preferences.preferences) {
+        localStorage.setItem('userLanguage', lang)
+      }
+    }
+  }
+  next()
 })
 
 // Create and mount app

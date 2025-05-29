@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, watch, onMounted } from 'vue'
 
 defineProps<{
   id: string
@@ -32,6 +32,41 @@ const formData = reactive<FormData>({
 const errors = reactive<FormErrors>({})
 const formSubmitted = ref(false)
 const formSubmitting = ref(false)
+
+// Función para guardar el estado del formulario
+const saveFormState = () => {
+  const cookieConsent = localStorage.getItem('cookieConsent')
+  if (cookieConsent) {
+    const preferences = JSON.parse(cookieConsent)
+    if (preferences.preferences) {
+      localStorage.setItem('contactFormData', JSON.stringify(formData))
+    }
+  }
+}
+
+// Función para restaurar el estado del formulario
+const restoreFormState = () => {
+  const cookieConsent = localStorage.getItem('cookieConsent')
+  if (cookieConsent) {
+    const preferences = JSON.parse(cookieConsent)
+    if (preferences.preferences) {
+      const savedData = localStorage.getItem('contactFormData')
+      if (savedData) {
+        const parsedData = JSON.parse(savedData)
+        Object.assign(formData, parsedData)
+      }
+    }
+  }
+}
+
+// Observar cambios en el formulario para guardar el estado
+watch(formData, () => {
+  saveFormState()
+}, { deep: true })
+
+onMounted(() => {
+  restoreFormState()
+})
 
 const validateEmail = (email: string): boolean => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
