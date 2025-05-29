@@ -15,7 +15,9 @@ alwaysApply: true
 
 # 1. Control de Versiones y Repositorios
 - Los commit debe seguir `Conventional Commit`.
-- Los mensajes del commit deben estructurarse en dos tipos; cortos y largos como se muestra aquí:
+- Los mensajes del commit deben estructurarse en dos tipos; cortos y largos.
+- Da prioridad a la estructura de `Commit Corto`.
+como se muestra aquí:
 ## 1.1 Estructura general
 ```
 <type>[optional scope]: <description>
