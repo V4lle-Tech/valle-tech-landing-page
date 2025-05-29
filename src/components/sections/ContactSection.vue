@@ -170,6 +170,10 @@ const getContactIcon = (iconName: string) => {
       return ''
   }
 }
+
+function formatEmailPlaceholder(email: string) {
+  return email.replace('[at]', '@')
+}
 </script>
 
 <template>
@@ -216,7 +220,7 @@ const getContactIcon = (iconName: string) => {
                   v-model="formData.email" 
                   class="form-input" 
                   :class="{ 'border-red-500': errors.email }"
-                  :placeholder="$t('contact.placeholders.email')"
+                  :placeholder="formatEmailPlaceholder($t('contact.placeholders.email'))"
                 >
                 <span v-if="errors.email" class="form-error">{{ errors.email }}</span>
               </div>

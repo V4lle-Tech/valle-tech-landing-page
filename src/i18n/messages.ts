@@ -171,7 +171,7 @@ export const messages = {
       location: 'Mi ubicación',
       placeholders: {
         name: 'Juan Pérez',
-        email: 'juan@ejemplo.com',
+        email: 'juan[at]ejemplo.com',
         phone: '+52 (55) 1234-5678',
         subject: 'Consulta de Proyecto',
         message: 'Cuéntame sobre tu proyecto y requerimientos...'
@@ -464,7 +464,7 @@ export const messages = {
       location: 'My Location',
       placeholders: {
         name: 'John Doe',
-        email: 'john@example.com',
+        email: 'john[at]example.com',
         phone: '+1 (555) 123-4567',
         subject: 'Project Inquiry',
         message: 'Tell me about your project and requirements...'
