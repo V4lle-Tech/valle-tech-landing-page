@@ -18,7 +18,9 @@ export const messages = {
       subtitle: 'Desarrollamos soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.',
       services: 'Nuestros Servicios',
       trusted: 'Confiado por más de 100 empresas',
-      stars: 'Servicios calificados con 5 estrellas'
+      stars: 'Servicios calificados con 5 estrellas',
+      satisfaction: '97% de satisfacción de clientes',
+      basedOn: 'Basado en más de 200 proyectos'
     },
     services: {
       title: 'Nuestros Servicios',
@@ -292,7 +294,9 @@ export const messages = {
       subtitle: 'We develop innovative technology solutions that drive your business growth.',
       services: 'Our Services',
       trusted: 'Trusted by 100+ businesses',
-      stars: '5-star rated services'
+      stars: '5-star rated services',
+      satisfaction: '97% Client Satisfaction',
+      basedOn: 'Based on 200+ projects'
     },
     services: {
       title: 'Our Services',

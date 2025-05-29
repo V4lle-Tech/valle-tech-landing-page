@@ -78,8 +78,8 @@ defineProps<{
                 </svg>
               </div>
               <div class="ml-3">
-                <p class="text-gray-800 font-medium">97% Client Satisfaction</p>
-                <p class="text-gray-500 text-sm">Based on 200+ projects</p>
+                <p class="text-gray-800 font-medium">{{$t('hero.satisfaction')}}</p>
+                <p class="text-gray-500 text-sm">{{$t('hero.basedOn')}}</p>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ defineProps<{
     
     <!-- Wave Divider -->
     <div class="absolute bottom-0 left-0 right-0">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="fill-white h-16 w-full">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="fill-white h-16 w-full rotate-180">
         <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path>
       </svg>
     </div>
