@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import { createI18n } from 'vue-i18n'
 import './style.css'
 import App from './App.vue'
@@ -27,11 +27,11 @@ const i18n = createI18n({
 
 // Create router
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     { 
       path: '/', 
-      redirect: to => `/${getSavedLanguage()}/#home`
+      redirect: to => `/${getSavedLanguage()}/home`
     },
     { 
       path: '/:lang',

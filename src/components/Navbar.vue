@@ -62,11 +62,11 @@ function handleClickOutside(event: MouseEvent) {
 }
 
 const navLinks = [
-  { key: 'home', path: '/:lang/#home' },
-  { key: 'services', path: '/:lang/#services' },
-  { key: 'about', path: '/:lang/#about' },
-  { key: 'portfolio', path: '/:lang/#portfolio' },
-  { key: 'contact', path: '/:lang/#contact' }
+  { key: 'home', path: '/:lang/home' },
+  { key: 'services', path: '/:lang/services' },
+  { key: 'about', path: '/:lang/about' },
+  { key: 'portfolio', path: '/:lang/portfolio' },
+  { key: 'contact', path: '/:lang/contact' }
 ]
 
 const activeSection = ref('home')
