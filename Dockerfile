@@ -7,7 +7,6 @@ RUN getent group node \
  && id -u node > /dev/null 2>&1 \
     || useradd --uid 1000 --gid node --shell /bin/bash --create-home node
 
-# Instalar dependencias necesarias para Cypress
 RUN apt-get update && apt-get install -y \
     xvfb \
     libgtk2.0-0 \
