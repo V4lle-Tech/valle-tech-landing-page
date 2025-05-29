@@ -1,0 +1,56 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: "Reglas de interes transversal"
+globs:
+  - "**/src/**"
+  - "**/public/**"
+  - "**/.devcontainer/**"
+  - "**"
+alwaysApply: true
+---
+
+# 1. Control de Versiones y Repositorios
+- Los commit debe seguir `Conventional Commit`.
+- Los mensajes del commit deben estructurarse en dos tipos; cortos y largos como se muestra aquí:
+## 1.1 Estructura general
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+## 1.2 Commit Corto
+- Pocos cambios en archivos que reportar al CVS.
+- Ideal para fixes, chore y otros cambios menores de menor impacto.
+
+Ejemplo Commit Corto
+````
+feat(lang): add Polish language
+````
+
+## 1.2 Commit Largo
+- Grandes cambios que reportar sulen ser mayores a un fix o patch de version.
+- Ideal para nuevas caracteristicas o grandes modificaciones en el código.
+
+Ejemplo Commit Largo
+````
+fix: prevent racing of requests
+
+Introduce a request id and a reference to latest request. Dismiss
+incoming responses other than from latest request.
+
+Remove timeouts which were used to mitigate the racing issue but are
+obsolete now.
+
+Reviewed-by: Z
+Refs: #123
+````
+
+# 2. Despliegue y CI/CD
+- Use Docker multi-stage builds y gestione variables de entorno con secretos seguros.  
+- Pipelines en GitHub Actions deben incluir build, test y deploy automáticos. 
