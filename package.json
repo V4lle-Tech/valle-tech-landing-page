@@ -12,10 +12,12 @@
   "author": "Antonio Valle <antonio@v4lle.tech>",
   "license": "MIT",
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.8",
     "vue": "^3.5.14"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.4",
+    "tailwindcss": "4.1",
     "vite": "^6.3.5"
   }
 }
