@@ -8,41 +8,20 @@ defineProps<{
 const services = [
   {
     id: 1,
-    title: 'Software Development',
-    description: 'Custom software solutions tailored to your unique business needs and challenges.',
+    key: 'software development',
     icon: 'code',
-    benefits: [
-      'Tailored to your specific requirements',
-      'Scalable architecture for future growth',
-      'Secure and reliable performance',
-      'Ongoing support and maintenance'
-    ],
     color: 'primary'
   },
   {
     id: 2,
-    title: 'IT Consulting',
-    description: 'Strategic technology guidance to optimize your business operations and digital transformation.',
+    key: 'it consulting',
     icon: 'lightbulb',
-    benefits: [
-      'Technology roadmap planning',
-      'Process optimization strategies',
-      'Digital transformation guidance',
-      'Cost-effective solutions'
-    ],
     color: 'secondary'
   },
   {
     id: 3,
-    title: 'Software Engineering Training',
-    description: 'Comprehensive training programs to upskill your team with cutting-edge technologies.',
+    key: 'software engineering training',
     icon: 'academic-cap',
-    benefits: [
-      'Customized curriculum for your team',
-      'Hands-on practical learning',
-      'Expert instructors with industry experience',
-      'Ongoing support after training'
-    ],
     color: 'accent'
   }
 ]
@@ -106,8 +85,8 @@ const getColorClass = (color: string) => {
   <section :id="id" class="py-20 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="section-title" data-aos="fade-up">
-        <h2>Our Services</h2>
-        <p>We offer comprehensive technology solutions to help your business innovate and grow</p>
+        <h2>{{ $t('services.title') }}</h2>
+        <p>{{ $t('services.subtitle') }}</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -123,14 +102,14 @@ const getColorClass = (color: string) => {
               <div :class="[getColorClass(service.color).text]" v-html="getIcon(service.icon)"></div>
             </div>
             
-            <h3 class="text-xl font-bold mb-3">{{ service.title }}</h3>
-            <p class="text-gray-600 mb-6">{{ service.description }}</p>
+            <h3 class="text-xl font-bold mb-3">{{ $t('services.' + service.key + '.title') }}</h3>
+            <p class="text-gray-600 mb-6">{{ $t('services.' + service.key + '.desc') }}</p>
             
             <div class="mb-6">
-              <h4 class="font-semibold text-gray-800 mb-3">Key Benefits:</h4>
+              <h4 class="font-semibold text-gray-800 mb-3">{{ $t('services.benefits') }}</h4>
               <ul class="space-y-2">
                 <li 
-                  v-for="(benefit, index) in service.benefits" 
+                  v-for="index in 4" 
                   :key="index"
                   class="flex items-start"
                 >
@@ -139,7 +118,7 @@ const getColorClass = (color: string) => {
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                     </svg>
                   </div>
-                  <span class="text-gray-700">{{ benefit }}</span>
+                  <span class="text-gray-700">{{ $t('services.' + service.key + '.benefits.' + (index - 1)) }}</span>
                 </li>
               </ul>
             </div>
@@ -148,14 +127,14 @@ const getColorClass = (color: string) => {
           <div 
             :class="['px-6 py-4 flex justify-center', getColorClass(service.color).bg, getColorClass(service.color).hover]"
           >
-            <a href="#contact" class="text-white font-medium">Learn More</a>
+            <a href="#contact" class="text-white font-medium">{{ $t('services.learnMore') }}</a>
           </div>
         </div>
       </div>
       
       <div class="mt-16 text-center" data-aos="fade-up">
         <a href="#contact" class="btn-primary">
-          Discuss Your Project
+          {{ $t('services.cta') }}
         </a>
       </div>
     </div>

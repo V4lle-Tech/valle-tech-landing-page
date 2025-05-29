@@ -15,19 +15,19 @@ defineProps<{
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Transforming Ideas Into <span class="text-secondary-400">Digital Realities</span>
+            {{ $t('hero.title') }}<span class="text-secondary-400">{{ $t('hero.title2') }}</span>
           </h1>
           
           <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-xl">
-            Custom software solutions to power your business growth and innovation
+            {{ $t('hero.subtitle') }}
           </p>
           
           <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <a href="#services" class="btn bg-secondary-600 hover:bg-secondary-700 text-white">
-              Explore Services
+              {{ $t('hero.services') }}
             </a>
             <a href="#contact" class="btn bg-transparent border-2 border-white hover:bg-white hover:text-primary-800 text-white transition-colors duration-300">
-              Get in Touch
+              {{ $t('navbar.cta') }}
             </a>
           </div>
           
@@ -38,7 +38,7 @@ defineProps<{
                 <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=120" alt="Client" class="w-10 h-10 rounded-full border-2 border-white">
                 <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=120" alt="Client" class="w-10 h-10 rounded-full border-2 border-white">
               </div>
-              <span class="ml-4 text-sm text-gray-200">Trusted by 100+ businesses</span>
+              <span class="ml-4 text-sm text-gray-200">{{ $t('hero.trusted') }}</span>
             </div>
             
             <div class="hidden md:flex items-center">
@@ -59,7 +59,7 @@ defineProps<{
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               </div>
-              <span class="ml-2 text-sm text-gray-200">5-star rated services</span>
+              <span class="ml-2 text-sm text-gray-200">{{ $t('hero.stars') }}</span>
             </div>
           </div>
         </div>

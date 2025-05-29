@@ -100,17 +100,17 @@ const handleSubmit = () => {
 
 const contactInfo = [
   {
-    title: 'Email',
+    key: 'email',
     value: 'info@v4lletech.com',
     icon: 'mail'
   },
   {
-    title: 'Phone',
+    key: 'phone',
     value: '+1 (555) 123-4567',
     icon: 'phone'
   },
   {
-    title: 'Address',
+    key: 'address',
     value: '123 Tech Boulevard, San Francisco, CA 94107',
     icon: 'location'
   }
@@ -141,47 +141,47 @@ const getContactIcon = (iconName: string) => {
   <section :id="id" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="section-title" data-aos="fade-up">
-        <h2>Get in Touch</h2>
-        <p>Have a project in mind? Let's discuss how we can help you achieve your goals</p>
+        <h2>{{ $t('contact.title') }}</h2>
+        <p>{{ $t('contact.subtitle') }}</p>
       </div>
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
         <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-right">
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">{{ $t('contact.sendMessage') }}</h3>
           
           <div v-if="formSubmitted" class="mb-6 p-4 bg-green-50 text-green-700 rounded-lg">
             <div class="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
               </svg>
-              <span>Thank you! Your message has been sent successfully.</span>
+              <span>{{ $t('contact.success') }}</span>
             </div>
           </div>
           
           <form @submit.prevent="handleSubmit">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div class="form-group">
-                <label for="name" class="form-label">Your Name*</label>
+                <label for="name" class="form-label">{{ $t('contact.name') }}</label>
                 <input 
                   type="text" 
                   id="name" 
                   v-model="formData.name" 
                   class="form-input" 
                   :class="{ 'border-red-500': errors.name }"
-                  placeholder="John Doe"
+                  :placeholder="$t('contact.placeholders.name')"
                 >
                 <span v-if="errors.name" class="form-error">{{ errors.name }}</span>
               </div>
               
               <div class="form-group">
-                <label for="email" class="form-label">Email Address*</label>
+                <label for="email" class="form-label">{{ $t('contact.email') }}</label>
                 <input 
                   type="email" 
                   id="email" 
                   v-model="formData.email" 
                   class="form-input" 
                   :class="{ 'border-red-500': errors.email }"
-                  placeholder="john@example.com"
+                  :placeholder="$t('contact.placeholders.email')"
                 >
                 <span v-if="errors.email" class="form-error">{{ errors.email }}</span>
               </div>
@@ -189,39 +189,39 @@ const getContactIcon = (iconName: string) => {
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div class="form-group">
-                <label for="phone" class="form-label">Phone Number</label>
+                <label for="phone" class="form-label">{{ $t('contact.phone') }}</label>
                 <input 
                   type="tel" 
                   id="phone" 
                   v-model="formData.phone" 
                   class="form-input" 
-                  placeholder="+1 (555) 123-4567"
+                  :placeholder="$t('contact.placeholders.phone')"
                 >
               </div>
               
               <div class="form-group">
-                <label for="subject" class="form-label">Subject*</label>
+                <label for="subject" class="form-label">{{ $t('contact.subject') }}</label>
                 <input 
                   type="text" 
                   id="subject" 
                   v-model="formData.subject" 
                   class="form-input" 
                   :class="{ 'border-red-500': errors.subject }"
-                  placeholder="Project Inquiry"
+                  :placeholder="$t('contact.placeholders.subject')"
                 >
                 <span v-if="errors.subject" class="form-error">{{ errors.subject }}</span>
               </div>
             </div>
             
             <div class="form-group">
-              <label for="message" class="form-label">Your Message*</label>
+              <label for="message" class="form-label">{{ $t('contact.message') }}</label>
               <textarea 
                 id="message" 
                 v-model="formData.message" 
                 rows="4" 
                 class="form-input resize-none" 
                 :class="{ 'border-red-500': errors.message }"
-                placeholder="Tell us about your project and requirements..."
+                :placeholder="$t('contact.placeholders.message')"
               ></textarea>
               <span v-if="errors.message" class="form-error">{{ errors.message }}</span>
             </div>
@@ -236,16 +236,16 @@ const getContactIcon = (iconName: string) => {
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Sending...
+                {{ $t('contact.sending') }}
               </span>
-              <span v-else>Send Message</span>
+              <span v-else>{{ $t('contact.send') }}</span>
             </button>
           </form>
         </div>
         
         <div data-aos="fade-left">
           <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">{{ $t('contact.info.title') }}</h3>
             
             <div class="space-y-6">
               <div 
@@ -257,14 +257,14 @@ const getContactIcon = (iconName: string) => {
                   <div v-html="getContactIcon(item.icon)"></div>
                 </div>
                 <div>
-                  <h4 class="font-medium text-gray-900">{{ item.title }}</h4>
+                  <h4 class="font-medium text-gray-900">{{ $t('contact.info.' + item.key) }}</h4>
                   <p class="text-gray-600">{{ item.value }}</p>
                 </div>
               </div>
             </div>
             
             <div class="mt-8">
-              <h4 class="font-medium text-gray-900 mb-4">Follow Us</h4>
+              <h4 class="font-medium text-gray-900 mb-4">{{ $t('contact.followUs') }}</h4>
               <div class="flex space-x-4">
                 <a href="#" class="bg-gray-100 p-2 rounded-lg text-gray-600 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -291,7 +291,7 @@ const getContactIcon = (iconName: string) => {
           </div>
           
           <div class="bg-white rounded-xl shadow-lg p-8 h-80">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Location</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('contact.location') }}</h3>
             <!-- Placeholder for map - would be replaced with actual map implementation -->
             <div class="h-48 bg-gray-200 rounded-lg overflow-hidden relative">
               <img 

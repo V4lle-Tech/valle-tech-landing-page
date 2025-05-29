@@ -5,23 +5,19 @@ defineProps<{
 
 const coreValues = [
   {
-    title: 'Innovation',
-    description: 'We constantly push boundaries to discover new solutions and approaches.',
+    key: 'innovation',
     icon: 'lightbulb'
   },
   {
-    title: 'Excellence',
-    description: 'We strive for the highest quality in everything we deliver.',
+    key: 'excellence',
     icon: 'star'
   },
   {
-    title: 'Integrity',
-    description: 'We maintain honest and transparent relationships with our clients.',
+    key: 'integrity',
     icon: 'shield-check'
   },
   {
-    title: 'Collaboration',
-    description: 'We work together with our clients as partners in their success.',
+    key: 'collaboration',
     icon: 'users'
   }
 ]
@@ -50,10 +46,10 @@ const getValueIcon = (iconName: string) => {
 }
 
 const achievements = [
-  { value: '150+', label: 'Projects Completed' },
-  { value: '50+', label: 'Happy Clients' },
-  { value: '12', label: 'Industry Awards' },
-  { value: '5+', label: 'Years of Excellence' }
+  { value: '150+', key: 0 },
+  { value: '50+', key: 1 },
+  { value: '12', key: 2 },
+  { value: '5+', key: 3 }
 ]
 </script>
 
@@ -61,8 +57,8 @@ const achievements = [
   <section :id="id" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="section-title" data-aos="fade-up">
-        <h2>About V4lle Tech</h2>
-        <p>Learn about our journey, mission, and the team behind our success</p>
+        <h2>{{ $t('about.title') }}</h2>
+        <p>{{ $t('about.subtitle') }}</p>
       </div>
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-12">
@@ -77,7 +73,7 @@ const achievements = [
             
             <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-xl max-w-xs">
               <p class="text-gray-800 italic">
-                "We combine technical expertise with creative problem-solving to deliver exceptional software solutions."
+                "{{ $t('about.quote') }}"
               </p>
               <div class="mt-4 flex items-center">
                 <img 
@@ -86,8 +82,8 @@ const achievements = [
                   class="w-10 h-10 rounded-full object-cover"
                 >
                 <div class="ml-3">
-                  <p class="font-medium text-gray-900">Sarah Johnson</p>
-                  <p class="text-sm text-gray-600">Founder & CEO</p>
+                  <p class="font-medium text-gray-900">{{ $t('about.ceo.name') }}</p>
+                  <p class="text-sm text-gray-600">{{ $t('about.ceo.title') }}</p>
                 </div>
               </div>
             </div>
@@ -95,34 +91,31 @@ const achievements = [
         </div>
         
         <div data-aos="fade-left">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Story</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('about.storyTitle') }}</h3>
           <p class="text-gray-700 mb-6">
-            Founded in 2020, V4lle Tech began with a mission to bridge the gap between complex technology and business needs. What started as a small team of passionate developers has grown into a comprehensive technology partner for businesses across multiple industries.
-          </p>
-          <p class="text-gray-700 mb-6">
-            Our team brings together diverse expertise in software development, IT strategy, and business analysis to deliver solutions that drive real results. We believe in building long-term partnerships with our clients, understanding their unique challenges, and crafting custom solutions that evolve with their needs.
+            {{ $t('about.story') }}
           </p>
           
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('about.missionTitle') }}</h3>
           <p class="text-gray-700 mb-6">
-            To empower businesses through innovative technology solutions that solve complex problems, drive growth, and create lasting value.
+            {{ $t('about.mission') }}
           </p>
           
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
             <div 
-              v-for="(item, index) in achievements" 
-              :key="index"
+              v-for="item in achievements" 
+              :key="item.key"
               class="bg-white p-4 rounded-lg shadow-md text-center"
             >
               <div class="text-3xl font-bold text-primary-600 mb-1">{{ item.value }}</div>
-              <div class="text-sm text-gray-600">{{ item.label }}</div>
+              <div class="text-sm text-gray-600">{{ $t('about.achievements.' + item.key) }}</div>
             </div>
           </div>
         </div>
       </div>
       
       <div class="mt-20" data-aos="fade-up">
-        <h3 class="text-2xl font-bold text-center text-gray-900 mb-10">Our Core Values</h3>
+        <h3 class="text-2xl font-bold text-center text-gray-900 mb-10">{{ $t('about.valuesTitle') }}</h3>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div 
@@ -136,8 +129,8 @@ const achievements = [
               <div v-html="getValueIcon(value.icon)"></div>
             </div>
             
-            <h4 class="text-xl font-semibold mb-2">{{ value.title }}</h4>
-            <p class="text-gray-600">{{ value.description }}</p>
+            <h4 class="text-xl font-semibold mb-2">{{ $t('about.values.' + value.key + '.title') }}</h4>
+            <p class="text-gray-600">{{ $t('about.values.' + value.key + '.desc') }}</p>
           </div>
         </div>
       </div>

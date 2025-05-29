@@ -1,8 +1,17 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { createI18n } from 'vue-i18n'
 import './style.css'
 import App from './App.vue'
 import Home from './views/Home.vue'
+import { messages } from './i18n/messages'
+
+const i18n = createI18n({
+  legacy: false,
+  locale: 'es-MX',
+  fallbackLocale: 'en-EU',
+  messages
+})
 
 // Create router
 const router = createRouter({
@@ -27,6 +36,7 @@ const router = createRouter({
 // Create and mount app
 const app = createApp(App)
 app.use(router)
+app.use(i18n)
 app.mount('#app')
 
 // Initialize AOS animation observer

@@ -7,11 +7,11 @@ const isScrolled = ref(false)
 const mobileMenuOpen = ref(false)
 
 const navLinks = [
-  { name: 'Home', path: '#home' },
-  { name: 'Services', path: '#services' },
-  { name: 'About', path: '#about' },
-  { name: 'Portfolio', path: '#portfolio' },
-  { name: 'Contact', path: '#contact' }
+  { key: 'home', path: '#home' },
+  { key: 'services', path: '#services' },
+  { key: 'about', path: '#about' },
+  { key: 'portfolio', path: '#portfolio' },
+  { key: 'contact', path: '#contact' }
 ]
 
 const activeSection = ref('home')
@@ -73,7 +73,8 @@ onUnmounted(() => {
         <!-- Logo -->
         <div class="flex-shrink-0">
           <a href="#home" class="flex items-center">
-            <span class="text-2xl font-bold text-primary-800">V4lle<span class="text-secondary-600">Tech</span></span>
+            <!-- <span class="text-2xl font-bold text-primary-800">V4lle<span class="text-secondary-600">Tech</span></span> -->
+            <img src="/v4lle-tech-v4.png" alt="V4lle Tech Logo" class="h-8 w-auto" />
           </a>
         </div>
         
@@ -81,7 +82,7 @@ onUnmounted(() => {
         <nav class="hidden md:flex space-x-8">
           <a 
             v-for="link in navLinks" 
-            :key="link.name"
+            :key="link.key"
             :href="link.path"
             :class="[
               'text-sm font-medium transition-colors duration-200 relative',
@@ -90,7 +91,7 @@ onUnmounted(() => {
                 : 'text-gray-800 hover:text-primary-700'
             ]"
           >
-            {{ link.name }}
+            {{ $t('navbar.' + link.key) }}
             <span 
               v-if="activeSection === link.path.substring(1)"
               class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 transform transition-transform duration-200"
@@ -100,7 +101,15 @@ onUnmounted(() => {
         
         <!-- CTA Button -->
         <div class="hidden md:block">
-          <a href="#contact" class="btn-primary">Get in Touch</a>
+          <a href="#contact" class="btn-primary">{{ $t('navbar.cta') }}</a>
+        </div>
+        
+        <!-- Language Switcher -->
+        <div class="ml-4">
+          <select v-model="$i18n.locale" class="border rounded px-2 py-1 text-sm">
+            <option value="es-MX">ES</option>
+            <option value="en-EU">EN</option>
+          </select>
         </div>
         
         <!-- Mobile Menu Button -->
@@ -109,7 +118,7 @@ onUnmounted(() => {
           @click="toggleMobileMenu"
           aria-expanded="false"
         >
-          <span class="sr-only">Open main menu</span>
+          <span class="sr-only">{{ $t('navbar.menu.open') }}</span>
           <svg v-if="!mobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -138,7 +147,7 @@ onUnmounted(() => {
             class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
             @click="closeMobileMenu"
           >
-            <span class="sr-only">Close main menu</span>
+            <span class="sr-only">{{ $t('navbar.menu.close') }}</span>
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -148,7 +157,7 @@ onUnmounted(() => {
         <nav class="flex flex-col space-y-4">
           <a 
             v-for="link in navLinks" 
-            :key="link.name"
+            :key="link.key"
             :href="link.path"
             :class="[
               'px-3 py-2 text-base font-medium rounded-md',
@@ -158,12 +167,12 @@ onUnmounted(() => {
             ]"
             @click="closeMobileMenu"
           >
-            {{ link.name }}
+            {{ $t('navbar.' + link.key) }}
           </a>
         </nav>
         
         <div class="mt-8">
-          <a href="#contact" @click="closeMobileMenu" class="w-full btn-primary block text-center">Get in Touch</a>
+          <a href="#contact" @click="closeMobileMenu" class="w-full btn-primary block text-center">{{ $t('navbar.cta') }}</a>
         </div>
       </div>
     </div>

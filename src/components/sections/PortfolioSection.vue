@@ -7,7 +7,7 @@ defineProps<{
 
 interface Project {
   id: number
-  title: string
+  key: string
   client: string
   category: string
   description: string
@@ -19,37 +19,37 @@ interface Project {
 const projects = ref<Project[]>([
   {
     id: 1,
-    title: 'E-Commerce Platform Redesign',
-    client: 'GlobalShop Inc.',
-    category: 'Web Development',
+    key: 'ecommerce',
+    client: 'TechRetail',
+    category: 'E-commerce',
     description: 'Complete overhaul of an existing e-commerce platform to improve user experience, mobile responsiveness, and increase conversion rates.',
-    technologies: ['Vue.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+    technologies: ['Vue.js', 'Node.js', 'MongoDB', 'AWS'],
     outcomes: [
       'Increased conversion rate by 24%',
       'Reduced page load time by 40%',
       'Improved mobile experience leading to 35% higher mobile sales'
     ],
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    image: 'https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   {
     id: 2,
-    title: 'Healthcare Management System',
-    client: 'MediCare Solutions',
-    category: 'Custom Software',
+    key: 'healthcare',
+    client: 'MediCare Plus',
+    category: 'Healthcare',
     description: 'Development of a comprehensive healthcare management system for tracking patient records, scheduling, and billing operations.',
-    technologies: ['React', 'TypeScript', 'PostgreSQL', 'Express.js'],
+    technologies: ['React', 'Python', 'PostgreSQL', 'Docker'],
     outcomes: [
       'Reduced administrative workload by 35%',
       'Improved appointment scheduling efficiency by 50%',
       'Seamless integration with existing hospital systems'
     ],
-    image: 'https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    image: 'https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   {
     id: 3,
-    title: 'FinTech Mobile Application',
+    key: 'fintech',
     client: 'NexusPay',
-    category: 'Mobile Development',
+    category: 'FinTech',
     description: 'Created a secure, user-friendly mobile application for digital payments, money transfers, and financial management.',
     technologies: ['React Native', 'Firebase', 'Redux', 'Node.js'],
     outcomes: [
@@ -61,9 +61,9 @@ const projects = ref<Project[]>([
   },
   {
     id: 4,
-    title: 'Smart Inventory Management',
+    key: 'inventory',
     client: 'LogiTech Industries',
-    category: 'Enterprise Software',
+    category: 'Enterprise',
     description: 'Built a cloud-based inventory management system with AI-powered forecasting capabilities for a manufacturing company.',
     technologies: ['Vue.js', '.NET Core', 'SQL Server', 'TensorFlow'],
     outcomes: [
@@ -95,8 +95,8 @@ const closeProjectDetails = () => {
   <section :id="id" class="py-20 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="section-title" data-aos="fade-up">
-        <h2>Our Portfolio</h2>
-        <p>Explore our recent projects and success stories</p>
+        <h2>{{ $t('portfolio.title') }}</h2>
+        <p>{{ $t('portfolio.subtitle') }}</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -111,18 +111,18 @@ const closeProjectDetails = () => {
           <div class="relative overflow-hidden h-64">
             <img 
               :src="project.image" 
-              :alt="project.title"
+              :alt="$t('portfolio.projects.' + project.key + '.title')"
               class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
             >
             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-              <span class="text-xs font-medium bg-primary-600 text-white py-1 px-2 rounded">{{ project.category }}</span>
-              <h3 class="text-white text-xl font-bold mt-2">{{ project.title }}</h3>
+              <span class="text-xs font-medium bg-primary-600 text-white py-1 px-2 rounded">{{ $t('portfolio.categories.' + project.category.toLowerCase()) }}</span>
+              <h3 class="text-white text-xl font-bold mt-2">{{ $t('portfolio.projects.' + project.key + '.title') }}</h3>
               <p class="text-gray-200 text-sm">{{ project.client }}</p>
             </div>
           </div>
           
           <div class="p-6">
-            <p class="text-gray-600 mb-4 line-clamp-3">{{ project.description }}</p>
+            <p class="text-gray-600 mb-4 line-clamp-3">{{ $t('portfolio.projects.' + project.key + '.description') }}</p>
             
             <div class="flex flex-wrap gap-2 mb-4">
               <span 
@@ -137,7 +137,7 @@ const closeProjectDetails = () => {
             <button 
               class="text-primary-600 font-medium flex items-center hover:text-primary-700 transition-colors duration-200"
             >
-              View Project Details
+              {{ $t('portfolio.viewDetails') }}
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
@@ -148,7 +148,7 @@ const closeProjectDetails = () => {
       
       <div class="mt-12 text-center" data-aos="fade-up">
         <a href="#contact" class="btn-primary">
-          Start Your Project
+          {{ $t('portfolio.cta') }}
         </a>
       </div>
     </div>
@@ -161,22 +161,20 @@ const closeProjectDetails = () => {
       @click="closeProjectDetails"
     >
       <div 
-        class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transition-transform duration-300"
-        :class="{ 'scale-100': showProjectDetails, 'scale-95': !showProjectDetails }"
+        class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
         @click.stop
       >
-        <div class="relative">
+        <div class="relative h-64 sm:h-80">
           <img 
             :src="selectedProject.image" 
-            :alt="selectedProject.title"
-            class="w-full h-64 object-cover"
+            :alt="$t('portfolio.projects.' + selectedProject.key + '.title')"
+            class="w-full h-full object-cover"
           >
           <button 
+            class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors duration-200"
             @click="closeProjectDetails"
-            class="absolute top-4 right-4 bg-white rounded-full p-2 text-gray-800 hover:text-gray-600 focus:outline-none"
-            aria-label="Close"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -185,20 +183,20 @@ const closeProjectDetails = () => {
         <div class="p-6">
           <div class="flex items-center justify-between mb-4">
             <div>
-              <span class="text-sm font-medium bg-primary-600 text-white py-1 px-2 rounded">{{ selectedProject.category }}</span>
-              <h3 class="text-gray-900 text-2xl font-bold mt-2">{{ selectedProject.title }}</h3>
+              <span class="text-sm font-medium bg-primary-600 text-white py-1 px-2 rounded">{{ $t('portfolio.categories.' + selectedProject.category.toLowerCase()) }}</span>
+              <h3 class="text-gray-900 text-2xl font-bold mt-2">{{ $t('portfolio.projects.' + selectedProject.key + '.title') }}</h3>
               <p class="text-gray-600">{{ selectedProject.client }}</p>
             </div>
           </div>
           
           <div class="mb-6">
-            <h4 class="text-lg font-semibold text-gray-900 mb-2">Project Overview</h4>
-            <p class="text-gray-700">{{ selectedProject.description }}</p>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">{{ $t('portfolio.projectOverview') }}</h4>
+            <p class="text-gray-700">{{ $t('portfolio.projects.' + selectedProject.key + '.description') }}</p>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 class="text-lg font-semibold text-gray-900 mb-2">Technologies Used</h4>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">{{ $t('portfolio.technologies') }}</h4>
               <div class="flex flex-wrap gap-2">
                 <span 
                   v-for="(tech, index) in selectedProject.technologies" 
@@ -211,14 +209,14 @@ const closeProjectDetails = () => {
             </div>
             
             <div>
-              <h4 class="text-lg font-semibold text-gray-900 mb-2">Key Outcomes</h4>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">{{ $t('portfolio.outcomes') }}</h4>
               <ul class="space-y-2">
                 <li 
-                  v-for="(outcome, index) in selectedProject.outcomes" 
+                  v-for="(outcome, index) in $t('portfolio.projects.' + selectedProject.key + '.outcomes')" 
                   :key="index"
                   class="flex items-start"
                 >
-                  <div class="mt-1 mr-2 text-green-600">
+                  <div class="mt-1 mr-2 text-primary-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                     </svg>
@@ -227,15 +225,6 @@ const closeProjectDetails = () => {
                 </li>
               </ul>
             </div>
-          </div>
-          
-          <div class="mt-8 flex justify-end">
-            <button 
-              @click="closeProjectDetails"
-              class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>

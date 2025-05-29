@@ -11,29 +11,29 @@ const socialLinks = [
 
 const footerLinks = [
   { 
-    title: 'Company',
+    key: 'company',
     links: [
-      { name: 'About', url: '#about' },
-      { name: 'Services', url: '#services' },
-      { name: 'Portfolio', url: '#portfolio' },
-      { name: 'Contact', url: '#contact' }
+      { key: 'about', url: '#about' },
+      { key: 'services', url: '#services' },
+      { key: 'portfolio', url: '#portfolio' },
+      { key: 'contact', url: '#contact' }
     ]
   },
   { 
-    title: 'Resources',
+    key: 'resources',
     links: [
-      { name: 'Blog', url: '#' },
-      { name: 'Case Studies', url: '#portfolio' },
-      { name: 'Documentation', url: '#' },
-      { name: 'FAQ', url: '#' }
+      { key: 'blog', url: '#' },
+      { key: 'caseStudies', url: '#portfolio' },
+      { key: 'documentation', url: '#' },
+      { key: 'faq', url: '#' }
     ]
   },
   { 
-    title: 'Legal',
+    key: 'legal',
     links: [
-      { name: 'Privacy Policy', url: '#' },
-      { name: 'Terms of Service', url: '#' },
-      { name: 'Cookie Policy', url: '#' }
+      { key: 'privacy', url: '#' },
+      { key: 'terms', url: '#' },
+      { key: 'cookies', url: '#' }
     ]
   }
 ]
@@ -64,7 +64,7 @@ const getSocialIcon = (name: string) => {
             <span class="text-2xl font-bold">V4lle<span class="text-secondary-400">Tech</span></span>
           </div>
           <p class="text-gray-400 mb-4 max-w-md">
-            We deliver innovative software solutions that empower businesses to achieve their digital transformation goals.
+            {{ $t('footer.description.' + $i18n.locale) }}
           </p>
           <div class="flex space-x-4">
             <a 
@@ -85,14 +85,14 @@ const getSocialIcon = (name: string) => {
           :key="index"
           class="mt-4 md:mt-0"
         >
-          <h3 class="text-lg font-semibold mb-4">{{ section.title }}</h3>
+          <h3 class="text-lg font-semibold mb-4">{{ $t('footer.sections.' + section.key + '.title.' + $i18n.locale) }}</h3>
           <ul class="space-y-2">
             <li v-for="(link, linkIndex) in section.links" :key="linkIndex">
               <a 
                 :href="link.url"
                 class="text-gray-400 hover:text-white transition-colors duration-200"
               >
-                {{ link.name }}
+                {{ $t('footer.sections.' + section.key + '.links.' + link.key + '.' + $i18n.locale) }}
               </a>
             </li>
           </ul>
@@ -102,9 +102,9 @@ const getSocialIcon = (name: string) => {
       <hr class="border-gray-800 my-8" />
       
       <div class="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-        <p>&copy; {{ currentYear }} V4lle Tech. All rights reserved.</p>
+        <p>&copy; {{ currentYear }} V4lle Tech. {{ $t('footer.copyright.' + $i18n.locale) }}</p>
         <div class="mt-4 md:mt-0">
-          <span>Designed with ❤️ for excellence</span>
+          <span>{{ $t('footer.madeWith.' + $i18n.locale) }}</span>
         </div>
       </div>
     </div>
