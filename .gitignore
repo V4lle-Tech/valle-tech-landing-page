@@ -12,9 +12,9 @@ dist
 dist-ssr
 *.local
 
-.envbuilder.tmp/*
-lost+found/*
-inspiration/*
+.envbuilder.tmp/
+lost+found/
+inspiration/
 
 # Editor directories and files
 .vscode/*
