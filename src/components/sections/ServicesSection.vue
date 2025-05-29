@@ -93,11 +93,11 @@ const getColorClass = (color: string) => {
         <div 
           v-for="service in services" 
           :key="service.id"
-          class="group bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2"
+          class="group bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 flex flex-col h-full"
           data-aos="fade-up"
           :data-aos-delay="service.id * 100"
         >
-          <div class="p-6">
+          <div class="p-6 flex-1 flex flex-col">
             <div :class="['inline-flex p-3 rounded-lg mb-5', getColorClass(service.color).light]">
               <div :class="[getColorClass(service.color).text]" v-html="getIcon(service.icon)"></div>
             </div>
@@ -123,7 +123,6 @@ const getColorClass = (color: string) => {
               </ul>
             </div>
           </div>
-          
           <div 
             :class="['px-6 py-4 flex justify-center', getColorClass(service.color).bg, getColorClass(service.color).hover]"
           >
