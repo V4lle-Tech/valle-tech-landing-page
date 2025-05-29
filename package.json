@@ -2,17 +2,20 @@
   "name": "landing-page",
   "version": "1.0.0",
   "description": "Página comercial de V4lle Tech",
-  "main": "index.js",
+  "type": "module",
+  "private": true,
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "author": "Antonio Valle <antonio@v4lle.tech>",
   "license": "MIT",
   "dependencies": {
-    
+    "vue": "^3.5.14"
   },
   "devDependencies": {
-    
+    "@vitejs/plugin-vue": "^5.2.4",
+    "vite": "^6.3.5"
   }
 }
