@@ -1,4 +1,4 @@
-import AvailabilityCards from "../components/AvailabilityCards.vue";
+// import AvailabilityCards from "../components/AvailabilityCards.vue";
 
 export const messages = {
   'es-MX': {
