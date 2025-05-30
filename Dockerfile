@@ -7,25 +7,10 @@ RUN getent group node \
  && id -u node > /dev/null 2>&1 \
     || useradd --uid 1000 --gid node --shell /bin/bash --create-home node
 
-RUN apt-get update && apt-get install -y \
-    xvfb \
-    libgtk2.0-0 \
-    libgtk-3-0 \
-    libgbm-dev \
-    libnotify-dev \
-    libgconf-2-4 \
-    libnss3 \
-    libxss1 \
-    libasound2 \
-    libxtst6 \
-    xauth \
-    && rm -rf /var/lib/apt/lists/*
-
 USER node
 WORKDIR /workspaces
-COPY --chown=node:node . /workspaces
-RUN pwd
-RUN ls -l
+COPY . /workspaces
+RUN chown -R node:node /workspaces
 RUN npm install
 
 EXPOSE 3080
