@@ -166,9 +166,10 @@ export const messages = {
         title: 'Información de contacto',
         email: 'Correo',
         phone: 'Teléfono',
-        address: 'Dirección'
+        timezone: 'Zona horaria de trabajo'
       },
       location: 'Mi ubicación',
+      timezone: 'Zona horaria: UTC-7',
       placeholders: {
         name: 'Juan Pérez',
         email: 'juan[at]ejemplo.com',
@@ -176,7 +177,8 @@ export const messages = {
         subject: 'Consulta de Proyecto',
         message: 'Cuéntame sobre tu proyecto y requerimientos...'
       },
-      followUs: 'Sígueme'
+      followUs: 'Sígueme',
+      daysLeft: 'Faltan {days} días'
     },
     footer: {
       description: {
@@ -459,9 +461,10 @@ export const messages = {
         title: 'Contact Information',
         email: 'Email',
         phone: 'Phone',
-        address: 'Address'
+        timezone: 'Work Timezone'
       },
       location: 'My Location',
+      timezone: 'Timezone: UTC-7 (CDMX)',
       placeholders: {
         name: 'John Doe',
         email: 'john[at]example.com',
@@ -469,7 +472,8 @@ export const messages = {
         subject: 'Project Inquiry',
         message: 'Tell me about your project and requirements...'
       },
-      followUs: 'Follow Me'
+      followUs: 'Follow Me',
+      daysLeft: '{days} days left'
     },
     footer: {
       description: {

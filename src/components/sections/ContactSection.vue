@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive, watch, onMounted } from 'vue'
+import AvailabilityCards from '../AvailabilityCards.vue'
 
 defineProps<{
   id: string
@@ -145,8 +146,7 @@ const contactInfo = [
     icon: 'phone'
   },
   {
-    key: 'address',
-    value: '123 Tech Boulevard, San Francisco, CA 94107',
+    key: 'timezone',
     icon: 'location'
   }
 ]
@@ -285,7 +285,6 @@ function formatEmailPlaceholder(email: string) {
         <div data-aos="fade-left">
           <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
             <h3 class="text-2xl font-bold text-gray-900 mb-6">{{ $t('contact.info.title') }}</h3>
-            
             <div class="space-y-6">
               <div 
                 v-for="(item, index) in contactInfo" 
@@ -297,7 +296,9 @@ function formatEmailPlaceholder(email: string) {
                 </div>
                 <div>
                   <h4 class="font-medium text-gray-900">{{ $t('contact.info.' + item.key) }}</h4>
-                  <p class="text-gray-600">{{ item.value }}</p>
+                  <p class="text-gray-600">
+                    {{ item.key === 'timezone' ? $t('contact.timezone') : item.value }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -330,23 +331,10 @@ function formatEmailPlaceholder(email: string) {
           </div>
           
           <div class="bg-white rounded-xl shadow-lg p-8 h-80">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('contact.location') }}</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('contact.availability') }}</h3>
             <!-- Placeholder for map - would be replaced with actual map implementation -->
-            <div class="h-48 bg-gray-200 rounded-lg overflow-hidden relative">
-              <img 
-                src="https://images.pexels.com/photos/2078076/pexels-photo-2078076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="Location Map" 
-                class="w-full h-full object-cover"
-              >
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-primary-600 text-white p-2 rounded-full animate-pulse">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
+            <AvailabilityCards class="h-48 bg-gray-200 rounded-lg overflow-hidden relative" />
+            
           </div>
         </div>
       </div>
