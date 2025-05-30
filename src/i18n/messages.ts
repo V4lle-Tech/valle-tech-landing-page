@@ -268,10 +268,7 @@ export const messages = {
       }
     },
     backToTop: {
-      label: {
-        'es-MX': 'Volver arriba',
-        'en-EU': 'Back to top'
-      }
+      label: 'Volver arriba'
     },
     cookieConsent: {
       message: 'Utilizo cookies para mejorar tu experiencia. Al continuar navegando, aceptas mi',
@@ -564,10 +561,7 @@ export const messages = {
       }
     },
     backToTop: {
-      label: {
-        'es-MX': 'Volver arriba',
-        'en-EU': 'Back to top'
-      }
+      label: 'Back to top'
     },
     cookieConsent: {
       message: 'I use cookies to enhance your experience. By continuing to browse, you accept my',
