@@ -1,5 +1,37 @@
-# Vue 3 + TypeScript + Vite
+# Valle Tech Landing Page
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![Deploy to GitHub Pages](https://github.com/valle-tech/landing-page/actions/workflows/deploy.yml/badge.svg)](https://github.com/valle-tech/landing-page/actions/workflows/deploy.yml)
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+<p align="center">
+  <img src="public/favicon/favicon-96x96.png" alt="Valle Tech Logo" width="96"/>
+</p>
+
+Landing page oficial de Valle Tech, diseñada para presentar la propuesta de valor, servicios y contacto de la empresa.
+
+## 🚀 Tecnologías principales
+
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Vue 3](https://img.shields.io/badge/Vue.js-35495E?logo=vue.js&logoColor=4FC08D)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=github-actions&logoColor=white)
+
+## 📦 Estructura del proyecto
+
+- `src/` — Código fuente principal (componentes, vistas, assets, rutas, i18n)
+- `public/` — Recursos públicos y favicon
+- `.github/workflows/` — Workflows de CI/CD
+
+## 🛠️ Scripts principales
+
+- `npm run dev` — Desarrollo local
+- `npm run build` — Build de producción
+- `npm run preview` — Previsualización del build
+
+## 🚢 Despliegue
+
+El despliegue se realiza automáticamente a GitHub Pages mediante GitHub Actions en cada push a `main`.
+
+---
+
+> Proyecto mantenido bajo buenas prácticas de arquitectura, CI/CD y control de versiones.
