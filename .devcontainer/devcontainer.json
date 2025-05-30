@@ -1,7 +1,7 @@
 {
     "name": "VueJS Devcontainer",
     "build": {
-      "dockerfile": "../Dockerfile",          // Ubica aquí el Dockerfile
+      "dockerfile": "Dockerfile",          // Ubica aquí el Dockerfile
       "context": "."                      // Define el contexto de construcción
     },
     "customizations": {
