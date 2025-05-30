@@ -7,10 +7,12 @@ RUN getent group node \
  && id -u node > /dev/null 2>&1 \
     || useradd --uid 1000 --gid node --shell /bin/bash --create-home node
 
-USER node
+USER root
 WORKDIR /workspaces
 COPY . /workspaces
 RUN chown -R node:node /workspaces
+
+USER node
 RUN npm install
 
 EXPOSE 3080
