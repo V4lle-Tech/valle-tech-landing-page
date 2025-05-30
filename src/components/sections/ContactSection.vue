@@ -331,9 +331,9 @@ function formatEmailPlaceholder(email: string) {
           </div>
           
           <div class="bg-gray-900 rounded-xl shadow-lg p-8 h-80">
-            <h3 class="text-2xl font-bold text-secondary-400 mb-4">{{ $t('contact.currentProjects') }}</h3>
+            <h3 class="text-2xl font-bold text-white mb-4">{{ $t('contact.currentProjects') }}</h3>
             <!-- Placeholder for map - would be replaced with actual map implementation -->
-            <CurrentProjectCards class="h-48 bg-gray-200 rounded-lg overflow-hidden relative" />
+            <CurrentProjectCards class="h-48 overflow-hidden relative" />
             
           </div>
         </div>

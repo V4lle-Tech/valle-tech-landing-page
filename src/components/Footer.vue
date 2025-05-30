@@ -61,7 +61,8 @@ const getSocialIcon = (name: string) => {
         <!-- Company Info -->
         <div class="lg:col-span-2">
           <div class="flex items-center mb-4">
-            <span class="text-2xl font-bold">V4lle<span class="text-secondary-400">Tech</span></span>
+            <!-- <span class="text-2xl font-bold">V4lle<span class="text-secondary-400">Tech</span></span> -->
+            <img src="/v4lle-tech-dark.png" alt="V4lle Tech Logo" class="h-8">
           </div>
           <p class="text-gray-400 mb-4 max-w-md">
             {{ $t('footer.description.' + $i18n.locale) }}

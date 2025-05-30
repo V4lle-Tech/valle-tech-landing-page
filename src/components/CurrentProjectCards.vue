@@ -68,7 +68,7 @@ const prevSlide = () => {
 <template>
   <div class="relative w-full max-w-3xl mx-auto">
     <!-- Contenedor Principal -->
-    <div class="relative overflow-hidden">
+    <div class="relative overflow-hidden pt-6">
       <!-- Carrusel -->
       <div 
         class="flex transition-transform duration-300 ease-in-out"
@@ -79,15 +79,15 @@ const prevSlide = () => {
           :key="project.id"
           class="w-full flex-shrink-0 px-4"
         >
-          <div class="bg-white p-4 rounded-lg shadow-md text-center">
-            <div class="relative w-16 h-16 mx-auto mb-2">
+          <div class="bg-white p-4 rounded-lg shadow-md text-center ml-8 mr-8">
+            <div class="relative w-16 h-16 bg-white mx-auto mb-2">
               <div class="absolute inset-0 flex items-center justify-center">
-                <span class="font-bold text-xs text-primary-800">{{ project.name }}</span>
+                <span class="font-bold text-xs text-primary-400">{{ project.name }}</span>
               </div>
             </div>
-            <span class="text-xs text-gray-500">
+            <!-- <span class="text-xs text-gray-500">
               {{ t('contact.daysLeft', { days: project.duration - project.daysElapsed }) }}
-            </span>
+            </span> -->
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@ const prevSlide = () => {
       <!-- Botones de Navegación -->
       <button
         @click="prevSlide"
-        class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow rounded-full p-2 hover:bg-primary-50 transition"
+        class="absolute left-0 top-1/2 -translate-y-1/2 mt-4 bg-white shadow rounded-full p-2 hover:bg-primary-50 transition"
         aria-label="Anterior"
       >
         <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -105,7 +105,7 @@ const prevSlide = () => {
 
       <button
         @click="nextSlide"
-        class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow rounded-full p-2 hover:bg-primary-50 transition"
+        class="absolute right-0 top-1/2 -translate-y-1/2 mt-4 bg-white shadow rounded-full p-2 hover:bg-primary-50 transition"
         aria-label="Siguiente"
       >
         <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -121,7 +121,7 @@ const prevSlide = () => {
         :key="index"
         @click="goToSlide(index)"
         class="w-2 h-2 rounded-full transition-colors"
-        :class="activeIndex === index ? 'bg-primary-600' : 'bg-gray-300'"
+        :class="activeIndex === index ? 'bg-secondary-400' : 'bg-gray-300'"
         :aria-label="`Ir a la diapositiva ${index + 1}`"
       />
     </div>

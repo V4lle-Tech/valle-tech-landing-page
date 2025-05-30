@@ -161,7 +161,7 @@ onUnmounted(() => {
         <div class="flex-shrink-0">
           <router-link to="/#home" class="flex items-center">
             <!-- <span class="text-2xl font-bold text-primary-800">V4lle<span class="text-secondary-600">Tech</span></span> -->
-            <img src="/v4lle-tech-v4.png" alt="V4lle Tech Logo" class="h-8 w-auto" />
+            <img src="/v4lle-tech-light.png" alt="V4lle Tech Logo" class="h-8 w-auto" />
           </router-link>
         </div>
         
@@ -255,7 +255,7 @@ onUnmounted(() => {
     >
       <div class="p-5 h-full bg-white">
         <div class="flex items-center justify-between mb-6">
-          <img src="/v4lle-tech-v4.png" alt="V4lle Tech Logo" class="h-8 w-auto" />
+          <img src="/v4lle-tech-light.png" alt="V4lle Tech Logo" class="h-8 w-auto" />
           <button 
             class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
             @click="closeMobileMenu"
