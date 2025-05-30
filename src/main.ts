@@ -4,6 +4,7 @@ import { createI18n } from 'vue-i18n'
 import './style.css'
 import App from './App.vue'
 import Home from './views/Home.vue'
+import ComingSoon from './views/ComingSoon.vue'
 import { messages } from './i18n/messages'
 
 // Obtener el idioma guardado o usar el predeterminado
@@ -31,18 +32,19 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: () => `/${getSavedLanguage()}`
-    },
-    {
-      path: '/:lang',
-      component: App,
-      children: [
-        {
-          path: '',
-          component: Home
-        }
-      ]
+      component: ComingSoon
     }
+    // Ruta Home desactivada temporalmente
+    // {
+    //   path: '/:lang',
+    //   component: App,
+    //   children: [
+    //     {
+    //       path: '',
+    //       component: Home
+    //     }
+    //   ]
+    // }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
