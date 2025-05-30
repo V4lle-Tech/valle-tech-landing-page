@@ -1,43 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-
-// Domain Types
-interface Project {
-  id: number
-  name: string
-  status: 'en revision' | 'en espera' | 'por concluir'
-  daysElapsed: number
-  duration: number
-}
-
-// Constants
-const CAROUSEL_CONFIG = {
-  RADIUS: 28,
-  AUTO_SCROLL_INTERVAL: 3000,
-  CARD_MIN_WIDTH: 140,
-  CARD_MAX_WIDTH: 140,
-  CARD_GAP: 16,
-  COLORS: {
-    TRACK: 'stroke-gray-200',
-    BAR: 'stroke-primary-600',
-    TEXT: 'text-primary-800'
-  }
-} as const
-
-// Composables
-const useCarouselState = () => {
-  const currentIndex = ref(0)
-  const carouselRef = ref<HTMLElement | null>(null)
-
-  return {
-    currentIndex,
-    carouselRef
-  }
-}
-
-// Component Setup
-const { t } = useI18n()
 
 const projects = [
   { id: 1, name: 'Landing Page', status: 'en revision', daysElapsed: 3, duration: 10 },
@@ -46,9 +8,6 @@ const projects = [
   { id: 4, name: 'API REST', status: 'en espera', daysElapsed: 1, duration: 5 },
   { id: 5, name: 'Dashboard', status: 'en revision', daysElapsed: 6, duration: 12 }
 ]
-
-// State Management
-const state = useCarouselState()
 
 const activeIndex = ref(0)
 

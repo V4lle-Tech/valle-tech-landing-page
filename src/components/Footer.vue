@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const currentYear = new Date().getFullYear()
 const socialLinks = [
   { name: 'Twitter', url: '#', icon: 'twitter' },

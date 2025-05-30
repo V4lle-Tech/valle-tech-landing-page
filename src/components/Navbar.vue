@@ -115,32 +115,6 @@ const navbarClasses = computed(() => {
   ]
 })
 
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    const offset = 80 // Ajusta este valor según el alto de tu navbar
-    const elementPosition = element.getBoundingClientRect().top
-    const offsetPosition = elementPosition + window.pageYOffset - offset
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    })
-  }
-}
-
-const handleNavigation = (sectionId: string) => {
-  // Primero actualizamos la URL
-  const currentPath = router.currentRoute.value.path
-  const newPath = `${currentPath.split('/').slice(0, -1).join('/')}/${sectionId}`
-  router.push(newPath)
-  
-  // Luego hacemos el scroll suave
-  setTimeout(() => {
-    scrollToSection(sectionId)
-  }, 100)
-}
-
 onMounted(() => {
   window.addEventListener('click', handleClickOutside)
   window.addEventListener('scroll', checkScroll)

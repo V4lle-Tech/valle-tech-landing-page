@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { createI18n } from 'vue-i18n'
 import './style.css'
 import App from './App.vue'
-import Home from './views/Home.vue'
+// import Home from './views/Home.vue'
 import ComingSoon from './views/ComingSoon.vue'
 import { messages } from './i18n/messages'
 
@@ -46,7 +46,7 @@ const router = createRouter({
     //   ]
     // }
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to: any, _: any, savedPosition: any) {
     if (to.hash) {
       return {
         el: to.hash,
@@ -62,7 +62,7 @@ const router = createRouter({
 })
 
 // Middleware para manejar el cambio de idioma
-router.beforeEach((to, from, next) => {
+router.beforeEach((to: any, _: any, next: any) => {
   const lang = typeof to.params.lang === 'string' ? to.params.lang : null
   if (lang && ['es-MX', 'en-EU'].includes(lang)) {
     i18n.global.locale.value = lang as 'es-MX' | 'en-EU'
