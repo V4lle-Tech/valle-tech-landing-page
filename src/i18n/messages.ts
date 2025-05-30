@@ -1,3 +1,5 @@
+import AvailabilityCards from "../components/AvailabilityCards.vue";
+
 export const messages = {
   'es-MX': {
     navbar: {
@@ -178,6 +180,7 @@ export const messages = {
         message: 'Cuéntame sobre tu proyecto y requerimientos...'
       },
       followUs: 'Sígueme',
+      currentProjects: 'Proyectos actuales',
       daysLeft: 'Faltan {days} días'
     },
     footer: {
@@ -473,6 +476,7 @@ export const messages = {
         message: 'Tell me about your project and requirements...'
       },
       followUs: 'Follow Me',
+      currentProjects: 'Current Projects',
       daysLeft: '{days} days left'
     },
     footer: {
