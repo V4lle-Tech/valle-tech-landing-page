@@ -1,8 +1,8 @@
 {
     "name": "VueJS Devcontainer",
     "build": {
-      "dockerfile": "Dockerfile",          // Ubica aquí el Dockerfile
-      "context": "."                      // Define el contexto de construcción
+      "dockerfile": "Dockerfile",
+      "context": "."
     },
     "customizations": {
       "vscode": {
@@ -11,12 +11,12 @@
           "esbenp.prettier-vscode",
           "mubaidr.vuejs-extension-pack"
         ],
-        "settings": {                      // Mueve aquí tus settings
+        "settings": {
           "terminal.integrated.shell.linux": "/bin/bash"
         }
       }
     },
-    "forwardPorts": [3080],                // Sigue en la raíz
-    "workspaceFolder": "/workspaces",      // Sigue en la raíz
-    "remoteUser": "node"                   // Sigue en la raíz
+    "forwardPorts": [3080],
+    "workspaceFolder": "/workspaces",
+    "remoteUser": "node"
   }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import Clarity from '@microsoft/clarity';
 
 const { locale } = useI18n()
 const accepted = ref(false)
@@ -18,6 +19,15 @@ const cookiePreferences = ref<CookiePreferences>({
   analytics: false
 })
 
+let clarityInitialized = false
+
+const initClarity = () => {
+  if (!clarityInitialized) {
+    Clarity.init('rtufbv20as')
+    clarityInitialized = true
+  }
+}
+
 const acceptAllCookies = () => {
   cookiePreferences.value = {
     necessary: true,
@@ -26,11 +36,17 @@ const acceptAllCookies = () => {
   }
   saveCookiePreferences()
   accepted.value = true
+  if (cookiePreferences.value.analytics) {
+    initClarity()
+  }
 }
 
 const acceptSelectedCookies = () => {
   saveCookiePreferences()
   accepted.value = true
+  if (cookiePreferences.value.analytics) {
+    initClarity()
+  }
 }
 
 const declineCookies = () => {
@@ -64,6 +80,10 @@ onMounted(() => {
   if (savedPreferences) {
     cookiePreferences.value = JSON.parse(savedPreferences)
     accepted.value = true
+    // Inicializar Clarity si ya se había aceptado analítica
+    if (cookiePreferences.value.analytics) {
+      initClarity()
+    }
   }
 })
 </script>

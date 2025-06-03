@@ -6,6 +6,7 @@ import App from './App.vue'
 // import Home from './views/Home.vue'
 import ComingSoon from './views/ComingSoon.vue'
 import { messages } from './i18n/messages'
+// import Clarity from '@microsoft/clarity';
 
 // Obtener el idioma guardado o usar el predeterminado
 const getSavedLanguage = () => {
