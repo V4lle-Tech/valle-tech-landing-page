@@ -1,9 +1,9 @@
 # Valle Tech Landing Page
 
-[![Deploy to GitHub Pages](https://github.com/valle-tech/landing-page/actions/workflows/deploy.yml/badge.svg)](https://github.com/valle-tech/landing-page/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/V4lle-Tech/valle-tech-landing-page/actions/workflows/deploy.yml/badge.svg)](https://github.com/V4lle-Tech/valle-tech-landing-page/actions/workflows/deploy.yml)
 
 <p align="center">
-  <img src="public/favicon/favicon-96x96.png" alt="Valle Tech Logo" width="96"/>
+  <img src="public/v4ll-tech-light.png" alt="Valle Tech Logo" width="96"/>
 </p>
 
 Landing page oficial de Valle Tech, diseñada para presentar la propuesta de valor, servicios y contacto de la empresa.
