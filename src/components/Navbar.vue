@@ -30,16 +30,21 @@ const languageOptions = [
 function selectLanguage(code: string) {
   locale.value = code
   languageMenuOpen.value = false
-  
-  // Obtener la sección actual del hash
-  const currentHash = window.location.hash.slice(1) || 'home'
-  
-  // Actualizar la URL con el nuevo idioma y mantener el hash
-  router.push({ 
-    path: `/${code}`,
-    hash: `#${currentHash}`
-  })
-  
+
+  // Obtener el hash actual (ej: #/en-EU#home)
+  const fullHash = window.location.hash // ej: #/en-EU#home
+  // Extraer idioma y sección
+  const hashMatch = fullHash.match(/^#\/(\w{2}-\w{2})(#.*)?$/)
+  let sectionHash = '#home'
+  if (hashMatch && hashMatch[2]) {
+    sectionHash = hashMatch[2]
+  }
+  // Construir nuevo hash
+  const newHash = `#/${code}${sectionHash}`
+
+  // Reemplazar el hash en la URL
+  window.location.hash = newHash
+
   // Guardar el idioma seleccionado si se aceptaron las cookies de preferencias
   const cookieConsent = localStorage.getItem('cookieConsent')
   if (cookieConsent) {

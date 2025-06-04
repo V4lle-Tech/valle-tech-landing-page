@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+// import { useRouter } from 'vue-router'
+
+const { locale } = useI18n()
+
 const currentYear = new Date().getFullYear()
 const socialLinks = [
-  { name: 'Twitter', url: '#', icon: 'twitter' },
-  { name: 'LinkedIn', url: '#', icon: 'linkedin' },
-  { name: 'GitHub', url: '#', icon: 'github' },
-  { name: 'Instagram', url: '#', icon: 'instagram' }
+  { name: 'Twitter', url: 'https://x.com/V4lleTech', icon: 'twitter' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/company/v4lle-tech/', icon: 'linkedin' },
+  { name: 'GitHub', url: 'https://github.com/V4lle-Tech', icon: 'github' },
+  //{ name: 'Instagram', url: '#', icon: 'instagram' }  
 ]
 
 const footerLinks = [
@@ -14,7 +19,7 @@ const footerLinks = [
       { key: 'about', url: '#about' },
       { key: 'services', url: '#services' },
       { key: 'portfolio', url: '#portfolio' },
-      { key: 'contact', url: '#contact' }
+      // { key: 'contact', url: '#contact' }
     ]
   },
   // { 
@@ -69,7 +74,8 @@ const getSocialIcon = (name: string) => {
             <a 
               v-for="(link, index) in socialLinks" 
               :key="index" 
-              :href="link.url" 
+              :href="link.url"
+              target="_blank"
               class="text-gray-400 hover:text-white transition-colors duration-200"
               :aria-label="link.name"
             >
@@ -87,12 +93,12 @@ const getSocialIcon = (name: string) => {
           <h3 class="text-lg font-semibold mb-4">{{ $t('footer.sections.' + section.key + '.title.' + $i18n.locale) }}</h3>
           <ul class="space-y-2">
             <li v-for="(link, linkIndex) in section.links" :key="linkIndex">
-              <a 
-                :href="link.url"
+              <router-link
+                :to="{ path: `/${locale}`, hash: link.url }"
                 class="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 {{ $t('footer.sections.' + section.key + '.links.' + link.key + '.' + $i18n.locale) }}
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>
