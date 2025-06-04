@@ -20,7 +20,7 @@ const projects = ref<Project[]>([
     key: 'accyon-landing-page',
     client: 'ACCYON',
     technologies: ['Vue.js', 'Firebase'],
-    image: './public/portfolio/accyon-landing-page.png'
+    image: '/portfolio/accyon-landing-page.png'
   },
   {
     id: 2,

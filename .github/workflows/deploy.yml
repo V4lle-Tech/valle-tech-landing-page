@@ -24,8 +24,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Agregar el archivo CNAME al directorio de build
+      - name: Add CNAME file
+        run: echo "v4lle.tech" > ./dist/CNAME
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist 
+          publish_dir: ./dist
+          cname: v4lle.tech
