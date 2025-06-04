@@ -121,19 +121,19 @@ const getColorClass = (color: string) => {
               </ul>
             </div>
           </div>
-          <div 
+          <!-- <div 
             :class="['px-6 py-4 flex justify-center', getColorClass(service.color).bg, getColorClass(service.color).hover]"
           >
             <a href="#contact" class="text-white font-medium">{{ $t('services.learnMore') }}</a>
-          </div>
+          </div> -->
         </div>
       </div>
       
-      <div class="mt-16 text-center" data-aos="fade-up">
+      <!-- <div class="mt-16 text-center" data-aos="fade-up">
         <a href="#contact" class="btn-primary">
           {{ $t('services.cta') }}
         </a>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>

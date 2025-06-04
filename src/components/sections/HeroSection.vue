@@ -26,22 +26,22 @@ defineProps<{
             <router-link to="/#services" class="btn bg-secondary-600 hover:bg-secondary-700 text-white">
               {{ $t('hero.services') }}
             </router-link>
-            <router-link to="/#contact" class="btn bg-transparent border-2 border-white hover:bg-white hover:text-primary-800 text-white transition-colors duration-300">
+            <!-- <router-link to="/#contact" class="btn bg-transparent border-2 border-white hover:bg-white hover:text-primary-800 text-white transition-colors duration-300">
               {{ $t('navbar.cta') }}
-            </router-link>
+            </router-link> -->
           </div>
           
           <div class="mt-12 flex items-center space-x-8">
             <div class="flex items-center">
-              <div class="flex -space-x-2">
+              <!-- <div class="flex -space-x-2">
                 <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=120" alt="Client" class="w-10 h-10 rounded-full border-2 border-white">
                 <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=120" alt="Client" class="w-10 h-10 rounded-full border-2 border-white">
                 <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=120" alt="Client" class="w-10 h-10 rounded-full border-2 border-white">
-              </div>
+              </div> -->
               <span class="ml-4 text-sm text-gray-200">{{ $t('hero.trusted') }}</span>
             </div>
             
-            <div class="hidden md:flex items-center">
+            <!-- <div class="hidden md:flex items-center">
               <div class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -60,7 +60,7 @@ defineProps<{
                 </svg>
               </div>
               <span class="ml-2 text-sm text-gray-200">{{ $t('hero.stars') }}</span>
-            </div>
+            </div> -->
           </div>
         </div>
         

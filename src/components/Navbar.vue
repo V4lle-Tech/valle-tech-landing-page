@@ -69,8 +69,8 @@ const navLinks = [
   { key: 'home', section: 'home' },
   { key: 'services', section: 'services' },
   { key: 'about', section: 'about' },
-  { key: 'portfolio', section: 'portfolio' },
-  { key: 'contact', section: 'contact' }
+  { key: 'portfolio', section: 'portfolio' }
+  // { key: 'contact', section: 'contact' }
 ]
 
 const activeSection = ref('home')
@@ -165,7 +165,7 @@ onUnmounted(() => {
         
         <!-- CTA Button -->
         <div class="hidden md:block">
-          <router-link to="/#contact" class="btn-primary">{{ $t('navbar.cta') }}</router-link>
+          <!-- <router-link to="/#contact" class="btn-primary">{{ $t('navbar.cta') }}</router-link> -->
         </div>
         
         <!-- Language Switcher Mejorado SOLO EN DESKTOP/TABLET -->
@@ -246,7 +246,7 @@ onUnmounted(() => {
             v-for="link in navLinks" 
             :key="link.key"
             :to="{ 
-              path: `/${locale}/${link.section}`,
+              path: `/${locale}`,
               hash: `#${link.section}`
             }"
             :class="[
@@ -262,7 +262,7 @@ onUnmounted(() => {
         </nav>
         
         <div class="mt-8">
-          <router-link to="/#contact" @click="closeMobileMenu" class="w-full btn-primary block text-center">{{ $t('navbar.cta') }}</router-link>
+          <!-- <router-link to="/#contact" @click="closeMobileMenu" class="w-full btn-primary block text-center">{{ $t('navbar.cta') }}</router-link> -->
         </div>
         
         <!-- Selector de idioma SOLO EN MOBILE -->

@@ -17,12 +17,12 @@ export const messages = {
     hero: {
       title: 'Transformando Ideas en ',
       title2: 'Realidad Digital',
-      subtitle: 'Desarrollo soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.',
+      subtitle: 'Desarrollo de soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.',
       services: 'Mis Servicios',
-      trusted: 'Confiado por más de 50 clientes',
+      trusted: 'Confiado por más de 15 clientes',
       stars: 'Servicios calificados con 5 estrellas',
       satisfaction: '97% de satisfacción de clientes',
-      basedOn: 'Basado en más de 100 proyectos'
+      basedOn: 'Basado en más de 22 proyectos'
     },
     services: {
       title: 'Mis Servicios',
@@ -65,13 +65,13 @@ export const messages = {
       title: 'Sobre Mí',
       subtitle: 'Conoce mi experiencia y enfoque',
       storyTitle: 'Mi Historia',
-      story: 'Con más de 15 años de experiencia en el desarrollo de software, me especializo en crear soluciones tecnológicas que resuelven problemas reales y generan valor para mis clientes.',
+      story: 'Con más de 15 años de experiencia en el desarrollo de software e ideación de infraestructura tecnológica, me especializo en crear soluciones que resuelven problemas reales y generan valor para mis clientes.',
       missionTitle: 'Mi Misión',
-      mission: 'Empoderar negocios con soluciones tecnológicas innovadoras que resuelvan problemas complejos y generen valor duradero.',
-      quote: 'Combinando experiencia técnica con resolución creativa de problemas para entregar soluciones de software excepcionales.',
+      mission: 'Empoderar negocios con soluciones tecnológicas innovadoras que resuelvan problemas complejos o cotidianos y generen valor duradero.',
+      quote: 'Los problemas no son los mismos para todos, por lo que las soluciones tampoco. Por eso, creamos una solución personalizada para cada cliente.',
       ceo: {
-        name: 'Antonio V4lle',
-        title: 'Desarrollador de Software Senior'
+        name: 'Antonio Valle',
+        title: 'Arquitecto de Software'
       },
       valuesTitle: 'Mis Valores',
       values: {
@@ -107,47 +107,25 @@ export const messages = {
       projectOverview: 'Descripción del Proyecto',
       technologies: 'Tecnologías Utilizadas',
       outcomes: 'Resultados Clave',
-      categories: {
-        'e-commerce': 'E-commerce',
-        'healthcare': 'Salud',
-        'fintech': 'FinTech',
-        'enterprise': 'Empresarial'
-      },
       projects: {
-        ecommerce: {
-          title: 'Plataforma E-commerce',
-          description: 'Rediseño completo de una plataforma de comercio electrónico para mejorar la experiencia del usuario, la responsividad móvil y aumentar las tasas de conversión.',
+        'accyon-landing-page': {
+          title: 'Sitio web de reclutamiento de talento',
+          category: 'Empresarial',
+          description: 'Creación de una página web para un cliente de reclutamiento de talento. El sitio web es un landing page que permite a los candidatos aplicar a las vacantes disponibles.',
           outcomes: [
             'Aumento de la tasa de conversión en un 24%',
-            'Reducción del tiempo de carga de página en un 40%',
-            'Mejora de la experiencia móvil que llevó a un 35% más de ventas móviles'
+            'Reducción del tiempo de carga de página en un 40%', 
+            'Mejora de la experiencia móvil que llevó a un 35% más de visualizaciones móviles'
           ]
         },
-        healthcare: {
-          title: 'Sistema de Gestión de Salud',
-          description: 'Desarrollo de un sistema integral de gestión de salud para el seguimiento de registros de pacientes, programación y operaciones de facturación.',
+        'petreos-y-derivados-pos': {
+          title: 'Sistema punto de venta con programa de lealtad',
+          category: 'Ventas',
+          description: 'Desarrollo de un sistema integral de gestión de ventas para un cliente de petreos y derivados de Nayarit. El sistema permite a los clientes realizar compras y acumular puntos para canjearlos por productos.',
           outcomes: [
-            'Reducción de la carga administrativa en un 35%',
-            'Mejora de la eficiencia en la programación de citas en un 50%',
-            'Integración perfecta con sistemas hospitalarios existentes'
-          ]
-        },
-        fintech: {
-          title: 'Aplicación Móvil FinTech',
-          description: 'Creación de una aplicación móvil segura y fácil de usar para pagos digitales, transferencias de dinero y gestión financiera.',
-          outcomes: [
-            'Más de 100,000 descargas en el primer trimestre',
-            'Calificación promedio de usuario de 4.8/5 estrellas',
-            'Procesamiento exitoso de más de $10M en transacciones'
-          ]
-        },
-        inventory: {
-          title: 'Gestión Inteligente de Inventario',
-          description: 'Construcción de un sistema de gestión de inventario basado en la nube con capacidades de pronóstico impulsadas por IA para una empresa manufacturera.',
-          outcomes: [
-            'Reducción de costos de inventario en un 15%',
-            'Mejora de la precisión del pronóstico de demanda al 92%',
-            'Eliminación de conteos manuales de inventario mediante automatización'
+            'Automatización del proceso de liquidación de ventas y control de inventario',
+            'Incremento del 45% en la retención de clientes con el programa de lealtad',
+            'Reducción del 30% en errores de registro y control de materiales'
           ]
         }
       }
@@ -407,73 +385,57 @@ export const messages = {
         'enterprise': 'Enterprise'
       },
       projects: {
-        ecommerce: {
-          title: 'E-commerce Platform',
-          description: 'Complete overhaul of an existing e-commerce platform to improve user experience, mobile responsiveness, and increase conversion rates.',
+        'accyon-landing-page': {
+          title: 'Talent Recruitment Website',
+          category: 'Enterprise',
+          description: 'Creation of a landing page website for a talent recruitment client. The site allows candidates to apply for available positions.',
           outcomes: [
             'Increased conversion rate by 24%',
             'Reduced page load time by 40%',
-            'Improved mobile experience leading to 35% higher mobile sales'
+            'Improved mobile experience leading to 35% more mobile views'
           ]
         },
-        healthcare: {
-          title: 'Healthcare Management System',
-          description: 'Development of a comprehensive healthcare management system for tracking patient records, scheduling, and billing operations.',
+        'petreos-y-derivados-pos': {
+          title: 'Point of Sale System with Loyalty Program',
+          category: 'Sales',
+          description: 'Development of an integrated sales management system for a client in aggregates and derivatives in Nayarit. The system allows customers to make purchases and accumulate points to redeem for products.',
           outcomes: [
-            'Reduced administrative workload by 35%',
-            'Improved appointment scheduling efficiency by 50%',
-            'Seamless integration with existing hospital systems'
-          ]
-        },
-        fintech: {
-          title: 'FinTech Mobile Application',
-          description: 'Created a secure, user-friendly mobile application for digital payments, money transfers, and financial management.',
-          outcomes: [
-            'Over 100,000 downloads in the first quarter',
-            'Average user rating of 4.8/5 stars',
-            'Successfully processed over $10M in transactions'
-          ]
-        },
-        inventory: {
-          title: 'Smart Inventory Management',
-          description: 'Built a cloud-based inventory management system with AI-powered forecasting capabilities for a manufacturing company.',
-          outcomes: [
-            'Reduced inventory costs by 15%',
-            'Improved accuracy of demand forecasting to 92%',
-            'Eliminated manual inventory counts through automation'
+            'Automated sales settlement and inventory control process',
+            '45% increase in customer retention with the loyalty program',
+            '30% reduction in registration errors and material control'
           ]
         }
       }
     },
     contact: {
-      title: 'Get in Touch',
-      subtitle: 'Have a project in mind? Let\'s discuss how I can help you achieve your goals.',
-      sendMessage: 'Send Me a Message',
-      name: 'Your Name*',
-      email: 'Email Address*',
+      title: 'Contact',
+      subtitle: 'Do you have a project in mind? Let\'s talk.',
+      sendMessage: 'Send me a message',
+      name: 'Your name*',
+      email: 'Email*',
       phone: 'Phone',
       subject: 'Subject*',
-      message: 'Your Message*',
-      send: 'Send Message',
+      message: 'Your message*',
+      send: 'Send message',
       sending: 'Sending...',
       success: 'Thank you! Your message has been sent.',
       info: {
-        title: 'Contact Information',
+        title: 'Contact information',
         email: 'Email',
         phone: 'Phone',
-        timezone: 'Work Timezone'
+        timezone: 'Work timezone'
       },
-      location: 'My Location',
-      timezone: 'Timezone: UTC-7 (CDMX)',
+      location: 'My location',
+      timezone: 'Timezone: UTC-7',
       placeholders: {
         name: 'John Doe',
         email: 'john[at]example.com',
-        phone: '+1 (555) 123-4567',
-        subject: 'Project Inquiry',
+        phone: '+52 (55) 1234-5678',
+        subject: 'Project inquiry',
         message: 'Tell me about your project and requirements...'
       },
-      followUs: 'Follow Me',
-      currentProjects: 'Current Projects',
+      followUs: 'Follow me',
+      currentProjects: 'Current projects',
       daysLeft: '{days} days left'
     },
     footer: {
