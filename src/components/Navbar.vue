@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-const router = useRouter()
 const isScrolled = ref(false)
 const mobileMenuOpen = ref(false)
 
