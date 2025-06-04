@@ -385,73 +385,57 @@ export const messages = {
         'enterprise': 'Enterprise'
       },
       projects: {
-        ecommerce: {
-          title: 'E-commerce Platform',
-          description: 'Complete overhaul of an existing e-commerce platform to improve user experience, mobile responsiveness, and increase conversion rates.',
+        'accyon-landing-page': {
+          title: 'Talent Recruitment Website',
+          category: 'Enterprise',
+          description: 'Creation of a landing page website for a talent recruitment client. The site allows candidates to apply for available positions.',
           outcomes: [
             'Increased conversion rate by 24%',
             'Reduced page load time by 40%',
-            'Improved mobile experience leading to 35% higher mobile sales'
+            'Improved mobile experience leading to 35% more mobile views'
           ]
         },
-        healthcare: {
-          title: 'Healthcare Management System',
-          description: 'Development of a comprehensive healthcare management system for tracking patient records, scheduling, and billing operations.',
+        'petreos-y-derivados-pos': {
+          title: 'Point of Sale System with Loyalty Program',
+          category: 'Sales',
+          description: 'Development of an integrated sales management system for a client in aggregates and derivatives in Nayarit. The system allows customers to make purchases and accumulate points to redeem for products.',
           outcomes: [
-            'Reduced administrative workload by 35%',
-            'Improved appointment scheduling efficiency by 50%',
-            'Seamless integration with existing hospital systems'
-          ]
-        },
-        fintech: {
-          title: 'FinTech Mobile Application',
-          description: 'Created a secure, user-friendly mobile application for digital payments, money transfers, and financial management.',
-          outcomes: [
-            'Over 100,000 downloads in the first quarter',
-            'Average user rating of 4.8/5 stars',
-            'Successfully processed over $10M in transactions'
-          ]
-        },
-        inventory: {
-          title: 'Smart Inventory Management',
-          description: 'Built a cloud-based inventory management system with AI-powered forecasting capabilities for a manufacturing company.',
-          outcomes: [
-            'Reduced inventory costs by 15%',
-            'Improved accuracy of demand forecasting to 92%',
-            'Eliminated manual inventory counts through automation'
+            'Automated sales settlement and inventory control process',
+            '45% increase in customer retention with the loyalty program',
+            '30% reduction in registration errors and material control'
           ]
         }
       }
     },
     contact: {
-      title: 'Get in Touch',
-      subtitle: 'Have a project in mind? Let\'s discuss how I can help you achieve your goals.',
-      sendMessage: 'Send Me a Message',
-      name: 'Your Name*',
-      email: 'Email Address*',
+      title: 'Contact',
+      subtitle: 'Do you have a project in mind? Let\'s talk.',
+      sendMessage: 'Send me a message',
+      name: 'Your name*',
+      email: 'Email*',
       phone: 'Phone',
       subject: 'Subject*',
-      message: 'Your Message*',
-      send: 'Send Message',
+      message: 'Your message*',
+      send: 'Send message',
       sending: 'Sending...',
       success: 'Thank you! Your message has been sent.',
       info: {
-        title: 'Contact Information',
+        title: 'Contact information',
         email: 'Email',
         phone: 'Phone',
-        timezone: 'Work Timezone'
+        timezone: 'Work timezone'
       },
-      location: 'My Location',
-      timezone: 'Timezone: UTC-7 (CDMX)',
+      location: 'My location',
+      timezone: 'Timezone: UTC-7',
       placeholders: {
         name: 'John Doe',
         email: 'john[at]example.com',
-        phone: '+1 (555) 123-4567',
-        subject: 'Project Inquiry',
+        phone: '+52 (55) 1234-5678',
+        subject: 'Project inquiry',
         message: 'Tell me about your project and requirements...'
       },
-      followUs: 'Follow Me',
-      currentProjects: 'Current Projects',
+      followUs: 'Follow me',
+      currentProjects: 'Current projects',
       daysLeft: '{days} days left'
     },
     footer: {
