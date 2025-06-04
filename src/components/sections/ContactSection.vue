@@ -137,12 +137,12 @@ const handleSubmit = () => {
 const contactInfo = [
   {
     key: 'email',
-    value: 'info@v4lletech.com',
+    value: 'contacto@v4lle.tech',
     icon: 'mail'
   },
   {
     key: 'phone',
-    value: '+1 (555) 123-4567',
+    value: '+52 1 31 1118 1906',
     icon: 'phone'
   },
   {

@@ -46,10 +46,10 @@ const getValueIcon = (iconName: string) => {
 }
 
 const achievements = [
-  { value: '150+', key: 0 },
-  { value: '50+', key: 1 },
-  { value: '12', key: 2 },
-  { value: '5+', key: 3 }
+  { value: '20+', key: 0 },
+  { value: '15+', key: 1 },
+  { value: '7', key: 2 },
+  { value: '15+', key: 3 }
 ]
 </script>
 
@@ -77,13 +77,13 @@ const achievements = [
               </p>
               <div class="mt-4 flex items-center">
                 <img 
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100" 
-                  alt="CEO" 
+                  src="/public/profile/javm-profile-v2.png" 
+                  alt="Photo of CEO & Founder of V4lle Tech" 
                   class="w-10 h-10 rounded-full object-cover"
                 >
                 <div class="ml-3">
-                  <p class="font-medium text-gray-900">{{ $t('about.ceo.name') }}</p>
-                  <p class="text-sm text-gray-600">{{ $t('about.ceo.title') }}</p>
+                  <span class="font-medium text-gray-900 block">{{ $t('about.ceo.name') }}</span>
+                  <span class="text-sm text-gray-600 block">{{ $t('about.ceo.title') }}</span>
                 </div>
               </div>
             </div>
