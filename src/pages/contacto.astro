@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Contacto" description="Agenda una llamada gratuita de 30 minutos. Cuéntame qué necesitas y te digo cómo puedo ayudarte." current="/contacto">
+
+  <section class="page-hero" id="intro" data-nav-section="Intro">
+    <div class="container">
+      <p class="page-hero-label">CONTACTO</p>
+      <h1>Platiquemos<span style="color:var(--accent)">.</span></h1>
+      <p>
+        30 minutos. Sin costo. Sin compromiso.
+        Me cuentas qué necesitas y te digo si puedo ayudarte.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad" id="formulario" data-nav-section="Formulario" style="padding-top:2rem">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="contact-form-wrap">
+          <form id="contact-form" class="contact-form" action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">NOMBRE</label>
+                <input class="form-input" type="text" id="name" name="name" placeholder="¿Cómo te llamas?" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">CORREO</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="tu@correo.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">TELÉFONO (OPCIONAL)</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+52 ..." />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service">¿QUÉ NECESITAS?</label>
+              <select class="form-input" id="service" name="service">
+                <option value="">Selecciona una opción...</option>
+                <option value="desarrollo">Desarrollo a medida</option>
+                <option value="ia">Inteligencia artificial</option>
+                <option value="automatizacion">Automatización</option>
+                <option value="infraestructura">Servidores e infraestructura</option>
+                <option value="asesoria">Asesoría técnica</option>
+                <option value="otro">Otra cosa</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">CUÉNTAME MÁS</label>
+              <textarea class="form-input" id="message" name="message" placeholder="Describe brevemente tu proyecto o situación. No necesitas ser técnico — dime qué te duele y vemos cómo resolverlo." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="budget">PRESUPUESTO ESTIMADO</label>
+              <select class="form-input" id="budget" name="budget">
+                <option value="">No estoy seguro todavía</option>
+                <option value="30-80">$30,000 - $80,000 MXN</option>
+                <option value="80-200">$80,000 - $200,000 MXN</option>
+                <option value="200+">Más de $200,000 MXN</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;margin-top:0.5rem">
+              Enviar mensaje →
+            </button>
+
+            <p class="font-mono form-disclaimer">
+              Te respondo en menos de 24 horas. Si es urgente, mándame correo directo.
+            </p>
+          </form>
+        </div>
+
+        <!-- Sidebar info -->
+        <div class="contact-info">
+          <div class="card contact-info-card" style="margin-bottom:1.5rem">
+            <h3 class="font-display" style="font-weight:700;font-size:0.95rem;text-transform:uppercase;margin-bottom:1.2rem">
+              Información directa
+            </h3>
+            <div class="contact-detail">
+              <span class="font-mono contact-detail-label">CORREO</span>
+              <a href="mailto:hola@v4lle.tech" class="contact-detail-value">hola@v4lle.tech</a>
+            </div>
+            <div class="contact-detail">
+              <span class="font-mono contact-detail-label">UBICACIÓN</span>
+              <span class="contact-detail-value">Tepic, Nayarit, México</span>
+            </div>
+            <div class="contact-detail">
+              <span class="font-mono contact-detail-label">HORARIO</span>
+              <span class="contact-detail-value">Lunes a viernes, 9am–6pm CST</span>
+            </div>
+            <div class="contact-detail" style="border-bottom:none">
+              <span class="font-mono contact-detail-label">DISPONIBILIDAD</span>
+              <span class="contact-detail-value" style="display:flex;align-items:center;gap:0.5rem">
+                <span style="width:6px;height:6px;border-radius:50%;background:#22c55e;animation:pulse-green 2s infinite;display:inline-block"></span>
+                Aceptando proyectos
+              </span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="font-display" style="font-weight:700;font-size:0.95rem;text-transform:uppercase;margin-bottom:1rem">
+              ¿Qué pasa después?
+            </h3>
+            <div class="next-steps">
+              <div class="next-step">
+                <span class="font-mono next-step-num">01</span>
+                <div>
+                  <h4 style="font-weight:600;font-size:0.88rem;margin-bottom:0.15rem">Te respondo</h4>
+                  <p>En menos de 24 horas hábiles con una respuesta inicial.</p>
+                </div>
+              </div>
+              <div class="next-step">
+                <span class="font-mono next-step-num">02</span>
+                <div>
+                  <h4 style="font-weight:600;font-size:0.88rem;margin-bottom:0.15rem">Platicamos</h4>
+                  <p>Llamada de 30 min gratis para entender bien qué necesitas.</p>
+                </div>
+              </div>
+              <div class="next-step">
+                <span class="font-mono next-step-num">03</span>
+                <div>
+                  <h4 style="font-weight:600;font-size:0.88rem;margin-bottom:0.15rem">Te propongo</h4>
+                  <p>Propuesta formal con alcance, costo y fechas en menos de 1 semana.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:2.5rem}
+  @media(min-width:768px){.contact-grid{grid-template-columns:7fr 5fr;gap:3.5rem}}
+
+  .form-row{display:grid;grid-template-columns:1fr;gap:1rem}
+  @media(min-width:768px){.form-row{grid-template-columns:1fr 1fr}}
+  .form-group{margin-bottom:1.2rem}
+
+  select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%239c9cb2' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+
+  .form-disclaimer{font-size:0.6rem;color:var(--text-low);text-align:center;margin-top:1rem;letter-spacing:0.04em}
+
+  .contact-info{position:sticky;top:6rem}
+  .contact-detail{padding:1rem 0;border-bottom:1px solid var(--border)}
+  .contact-detail-label{font-size:0.55rem;color:var(--text-low);letter-spacing:0.12em;display:block;margin-bottom:0.25rem}
+  .contact-detail-value{font-size:0.92rem;font-weight:400}
+  a.contact-detail-value{color:var(--accent);transition:opacity 0.3s}
+  a.contact-detail-value:hover{opacity:0.7}
+
+  .next-steps{display:flex;flex-direction:column;gap:1rem}
+  .next-step{display:flex;gap:1rem}
+  .next-step-num{font-size:0.55rem;color:var(--accent);letter-spacing:0.06em;min-width:20px;padding-top:0.15rem}
+  .next-step p{color:var(--text-mid);font-size:0.82rem;line-height:1.5;font-weight:300;margin:0}
+</style>
+
+<script>
+  import { pageHeroReveal, revealBatch } from '../scripts/gsap-init';
+  pageHeroReveal('.page-hero');
+  revealBatch('.contact-form-wrap');
+  revealBatch('.contact-info');
+  revealBatch('.contact-detail');
+  revealBatch('.next-step');
+
+  document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement | null;
+    const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    if (btn) {
+      btn.textContent = '✓ Mensaje enviado';
+      btn.style.background = '#22c55e';
+      setTimeout(() => { btn.textContent = 'Enviar mensaje →'; btn.style.background = ''; }, 3000);
+    }
+  });
+</script>

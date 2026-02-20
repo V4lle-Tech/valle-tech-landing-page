@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import posts from '../../content/posts.json';
+
+const sortedPosts = [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<Base title="Blog" description="Artículos sobre tecnología, inteligencia artificial y consejos para PyMEs en México. Sin tecnicismos, directo al grano." current="/blog">
+
+  <section class="page-hero" id="intro" data-nav-section="Intro">
+    <div class="container">
+      <p class="page-hero-label">BLOG</p>
+      <h1>Notas sobre<br/>tecnología y<br/>negocios<span style="color:var(--accent)">.</span></h1>
+      <p>
+        Ideas, consejos y lecciones de más de 15 años trabajando con PyMEs en México.
+        Sin tecnicismos — o por lo menos lo intento.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad" id="articulos" data-nav-section="Artículos">
+    <div class="container">
+      <div class="blog-grid">
+        {sortedPosts.map((post, i) => (
+          <a href={`/blog/${post.slug}`} class="blog-card" style={`--delay: ${0.1 + i * 0.1}s`}>
+            <div class="blog-card-img img-block">
+              <img src={post.image} alt={post.title} loading="lazy" />
+              <div class="overlay"></div>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="tag">{post.category}</span>
+                <span class="font-mono" style="font-size:0.55rem;color:var(--text-low)">{post.readTime}</span>
+              </div>
+              <h2 class="font-display blog-card-title">{post.title}</h2>
+              <p>{post.excerpt}</p>
+              <time class="font-mono blog-card-date" datetime={post.date}>
+                {new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .blog-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+  @media(min-width:768px){.blog-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+
+  .blog-card{
+    display:block;border:1px solid var(--border);border-radius:10px;overflow:hidden;
+    transition:all 0.5s var(--ease);
+  }
+  .blog-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 32px var(--card-shadow)}
+
+  .blog-card-img{height:200px;position:relative}
+  .blog-card-img img{width:100%;height:100%;object-fit:cover}
+
+  .blog-card-body{padding:1.5rem 1.6rem}
+  .blog-card-meta{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem}
+  .blog-card-title{font-weight:800;font-size:1.15rem;letter-spacing:-0.02em;line-height:1.25;margin-bottom:0.6rem}
+  .blog-card-body p{color:var(--text-mid);font-size:0.88rem;line-height:1.65;font-weight:300;margin-bottom:1rem}
+  .blog-card-date{font-size:0.58rem;color:var(--text-low);letter-spacing:0.05em}
+</style>
+
+<script>
+  import { pageHeroReveal, revealBatch } from '../../scripts/gsap-init';
+  pageHeroReveal('.page-hero');
+  revealBatch('.blog-card');
+</script>

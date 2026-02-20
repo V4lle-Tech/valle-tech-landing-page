@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+
+const categories = [
+  {
+    title: 'Backend',
+    desc: 'El motor de las aplicaciones. Aquí es donde vive la lógica de negocio.',
+    tools: [
+      { name: 'Laravel', desc: 'Mi framework principal. Lo uso para el 80% de los proyectos. Rápido de desarrollar, fácil de mantener.' },
+      { name: 'Node.js', desc: 'Para cuando necesito tiempo real o microservicios ligeros.' },
+      { name: 'Python', desc: 'Sobre todo para tareas de inteligencia artificial y procesamiento de datos.' },
+    ]
+  },
+  {
+    title: 'Frontend',
+    desc: 'Lo que ves y tocas. Interfaces que funcionan bien en cualquier dispositivo.',
+    tools: [
+      { name: 'Vue.js', desc: 'Mi favorito para interfaces interactivas. Se lleva perfecto con Laravel.' },
+      { name: 'React', desc: 'Cuando el proyecto lo pide o el equipo ya lo usa.' },
+      { name: 'Astro', desc: 'Para sitios estáticos rápidos con buen SEO. Este sitio está hecho con Astro.' },
+    ]
+  },
+  {
+    title: 'Bases de datos',
+    desc: 'Donde viven tus datos. La decisión correcta aquí te ahorra muchos dolores de cabeza.',
+    tools: [
+      { name: 'PostgreSQL', desc: 'Mi base de datos predeterminada. Robusta, confiable y gratis.' },
+      { name: 'Redis', desc: 'Para caché y colas de trabajo. Hace que todo vuele.' },
+    ]
+  },
+  {
+    title: 'Infraestructura',
+    desc: 'Los servidores donde corren las apps. Configurados para no darte problemas.',
+    tools: [
+      { name: 'Azure', desc: 'Mi nube preferida. Buen soporte, buena cobertura en Latinoamérica.' },
+      { name: 'Docker', desc: 'Empaqueto todo en contenedores para que funcione igual en cualquier servidor.' },
+      { name: 'Linux', desc: 'Todos mis servidores corren en Linux. Estable, seguro y sin costo de licencia.' },
+    ]
+  },
+  {
+    title: 'Inteligencia artificial',
+    desc: 'Las herramientas que uso para los proyectos con IA y para acelerar mi propio trabajo.',
+    tools: [
+      { name: 'OpenAI', desc: 'Para chatbots, procesamiento de texto y asistentes inteligentes.' },
+      { name: 'Claude', desc: 'Mi copiloto de desarrollo. Lo uso todos los días para programar más rápido.' },
+    ]
+  },
+  {
+    title: 'Herramientas de trabajo',
+    desc: 'Lo que uso día a día para organizar proyectos y comunicarme con clientes.',
+    tools: [
+      { name: 'Git', desc: 'Control de versiones. Todo mi código está versionado y respaldado.' },
+      { name: 'GitHub', desc: 'Donde vive el código. Colaboración, revisiones y despliegues.' },
+      { name: 'Figma', desc: 'Para prototipos rápidos cuando necesito validar una idea visual.' },
+    ]
+  },
+];
+---
+
+<Base title="Stack" description="Las herramientas y tecnologías que uso: Laravel, Vue.js, React, PostgreSQL, Azure, Docker, OpenAI y más." current="/stack">
+
+  <section class="page-hero" id="intro" data-nav-section="Intro">
+    <div class="container">
+      <p class="page-hero-label">STACK</p>
+      <h1>Con qué<br/>trabajo<span style="color:var(--accent)">.</span></h1>
+      <p>
+        No uso tecnología por moda. Cada herramienta que ves aquí la elegí porque
+        resuelve bien un problema específico y tiene buen soporte a largo plazo.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad" id="herramientas" data-nav-section="Herramientas">
+    <div class="container">
+      {categories.map((cat, i) => (
+        <div class="stack-category" style={`--delay: ${0.1 + i * 0.06}s`}>
+          <div class="stack-cat-header">
+            <h2 class="font-display stack-cat-title">{cat.title}</h2>
+            <p class="stack-cat-desc">{cat.desc}</p>
+          </div>
+          <div class="stack-tools">
+            {cat.tools.map(tool => (
+              <div class="stack-tool card">
+                <h3 class="font-display" style="font-weight:700;font-size:1rem;margin-bottom:0.3rem">{tool.name}</h3>
+                <p style="color:var(--text-mid);font-size:0.88rem;line-height:1.6;font-weight:300">{tool.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-pad" id="contacto-cta" data-nav-section="Contacto" style="border-top:1px solid var(--border);text-align:center">
+    <div class="container">
+      <h2 class="section-title font-display">¿Tu stack es diferente<span style="color:var(--accent)">?</span></h2>
+      <p style="color:var(--text-mid);font-size:1.02rem;line-height:1.8;font-weight:300;max-width:480px;margin:1.5rem auto 2.5rem">
+        No hay problema. Me adapto a lo que ya tengas o te propongo algo que haga sentido para tu proyecto.
+      </p>
+      <a href="/contacto" class="btn-primary">Platiquemos →</a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .stack-category{
+    margin-bottom:3.5rem;
+  }
+  .stack-category:last-child{margin-bottom:0}
+
+  .stack-cat-header{margin-bottom:1.5rem}
+  .stack-cat-title{font-weight:900;font-size:1.4rem;text-transform:uppercase;letter-spacing:-0.03em}
+  .stack-cat-desc{color:var(--text-mid);font-size:0.9rem;font-weight:300;margin-top:0.3rem}
+
+  .stack-tools{display:grid;grid-template-columns:1fr;gap:0.8rem}
+  @media(min-width:768px){.stack-tools{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}}
+</style>
+
+<script>
+  import { pageHeroReveal, revealBatch } from '../scripts/gsap-init';
+  pageHeroReveal('.page-hero');
+  revealBatch('.stack-category');
+  revealBatch('.stack-tool');
+</script>
