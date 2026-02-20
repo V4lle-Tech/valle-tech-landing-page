@@ -1,0 +1,29 @@
+<div class="hero-terminal font-mono">
+  <div class="terminal-dots"><span></span><span></span><span></span></div>
+  <p><span class="terminal-prompt">$</span> valle-tech --status</p>
+  <p class="terminal-out">→ disponible 2026</p>
+  <p class="terminal-out">→ tepic, nay · remoto</p>
+  <p class="terminal-out">→ listo para tu proyecto<span class="terminal-cursor">_</span></p>
+</div>
+
+<style>
+  .hero-terminal{
+    position:absolute;bottom:3rem;left:2rem;z-index:2;
+    background:rgba(0,0,0,0.55);backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.08);border-radius:8px;
+    padding:1rem 1.4rem;max-width:320px;
+    font-size:0.72rem;line-height:1.8;color:rgba(255,255,255,0.7);
+  }
+  .terminal-dots{display:flex;gap:5px;margin-bottom:0.7rem}
+  .terminal-dots span{width:7px;height:7px;border-radius:50%}
+  .terminal-dots span:nth-child(1){background:#ff5f57}
+  .terminal-dots span:nth-child(2){background:#febc2e}
+  .terminal-dots span:nth-child(3){background:#28c840}
+  .terminal-prompt{color:var(--accent-bright);font-weight:500}
+  .terminal-out{color:rgba(255,255,255,0.5)}
+  .terminal-cursor{
+    color:var(--accent-bright);
+    animation:blink-cursor 1s step-end infinite;
+  }
+  @keyframes blink-cursor{0%,100%{opacity:1}50%{opacity:0}}
+</style>
