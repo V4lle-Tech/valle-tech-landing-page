@@ -55,9 +55,18 @@ const categories = [
     ]
   },
 ];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://v4lle.tech/" },
+    { "@type": "ListItem", "position": 2, "name": "Stack" }
+  ]
+};
 ---
 
-<Base title="Stack" description="Las herramientas y tecnologías que uso: Laravel, Vue.js, React, PostgreSQL, Azure, Docker, OpenAI y más." current="/stack">
+<Base title="Stack" description="Las herramientas y tecnologías que uso: Laravel, Vue.js, React, PostgreSQL, Azure, Docker, OpenAI y más." current="/stack" schema={breadcrumbSchema}>
 
   <section class="page-hero" id="intro" data-nav-section="Intro">
     <div class="container">

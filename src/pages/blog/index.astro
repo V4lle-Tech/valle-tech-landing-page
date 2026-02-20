@@ -25,9 +25,35 @@ sortedPosts.forEach(post => {
 
 // Count total
 const totalPosts = sortedPosts.length;
+
+const blogListSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog — Valle Tech",
+  "description": "Artículos sobre tecnología, inteligencia artificial y consejos para PyMEs en México.",
+  "url": "https://v4lle.tech/blog",
+  "inLanguage": "es-MX",
+  "author": { "@type": "Person", "name": "Antonio Valle" },
+  "blogPost": sortedPosts.slice(0, 10).map(p => ({
+    "@type": "BlogPosting",
+    "headline": p.title,
+    "url": `https://v4lle.tech/blog/${p.slug}`,
+    "datePublished": p.date,
+    "image": p.image
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://v4lle.tech/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog" }
+  ]
+};
 ---
 
-<Base title="Blog" description="Artículos sobre tecnología, inteligencia artificial y consejos para PyMEs en México. Sin tecnicismos, directo al grano." current="/blog">
+<Base title="Blog" description="Artículos sobre tecnología, inteligencia artificial y consejos para PyMEs en México. Sin tecnicismos, directo al grano." current="/blog" schema={[blogListSchema, breadcrumbSchema]}>
 
   <section class="page-hero" id="intro" data-nav-section="Intro">
     <div class="container">

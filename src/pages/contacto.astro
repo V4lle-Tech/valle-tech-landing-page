@@ -1,8 +1,31 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contacto — Valle Tech",
+  "description": "Agenda una llamada gratuita de 30 minutos con Valle Tech.",
+  "url": "https://v4lle.tech/contacto",
+  "mainEntity": {
+    "@type": "ProfessionalService",
+    "name": "Valle Tech",
+    "email": "hola@v4lle.tech",
+    "address": { "@type": "PostalAddress", "addressLocality": "Tepic", "addressRegion": "Nayarit", "addressCountry": "MX" }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://v4lle.tech/" },
+    { "@type": "ListItem", "position": 2, "name": "Contacto" }
+  ]
+};
 ---
 
-<Base title="Contacto" description="Agenda una llamada gratuita de 30 minutos. Cuéntame qué necesitas y te digo cómo puedo ayudarte." current="/contacto">
+<Base title="Contacto" description="Agenda una llamada gratuita de 30 minutos. Cuéntame qué necesitas y te digo cómo puedo ayudarte." current="/contacto" schema={[contactSchema, breadcrumbSchema]}>
 
   <section class="page-hero" id="intro" data-nav-section="Intro">
     <div class="container">
@@ -91,7 +114,7 @@ import Base from '../layouts/Base.astro';
             </div>
             <div class="contact-detail">
               <span class="font-mono contact-detail-label">HORARIO</span>
-              <span class="contact-detail-value">Lunes a viernes, 9am–6pm UTC-7</span>
+              <span class="contact-detail-value">Lunes a viernes, 8am–5pm UTC-7</span>
             </div>
             <div class="contact-detail" style="border-bottom:none">
               <span class="font-mono contact-detail-label">DISPONIBILIDAD</span>

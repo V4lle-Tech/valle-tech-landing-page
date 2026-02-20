@@ -1,9 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 import portfolio from '../content/portfolio.json';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://v4lle.tech/" },
+    { "@type": "ListItem", "position": 2, "name": "Portafolio" }
+  ]
+};
 ---
 
-<Base title="Portafolio" description="Casos de éxito: sistemas de punto de venta, chatbots, automatización de procesos y migración a la nube para PyMEs en México." current="/portafolio">
+<Base title="Portafolio" description="Casos de éxito: sistemas de punto de venta, chatbots, automatización de procesos y migración a la nube para PyMEs en México." current="/portafolio" schema={breadcrumbSchema}>
 
   <section class="page-hero" id="intro" data-nav-section="Intro">
     <div class="container">

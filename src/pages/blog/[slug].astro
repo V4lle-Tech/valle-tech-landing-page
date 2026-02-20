@@ -8,9 +8,48 @@ export function getStaticPaths() {
 
 const { post } = Astro.props;
 const otherPosts = posts.filter(p => p.slug !== post.slug).slice(0, 2);
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.title,
+  "description": post.excerpt,
+  "image": post.image,
+  "datePublished": post.date,
+  "dateModified": post.date,
+  "author": {
+    "@type": "Person",
+    "name": "Antonio Valle",
+    "url": "https://v4lle.tech/sobre-mi"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Valle Tech",
+    "url": "https://v4lle.tech",
+    "logo": { "@type": "ImageObject", "url": "https://v4lle.tech/favicon.svg" }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://v4lle.tech/blog/${post.slug}`
+  },
+  "articleSection": post.category,
+  "inLanguage": "es-MX"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://v4lle.tech/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://v4lle.tech/blog" },
+    { "@type": "ListItem", "position": 3, "name": post.title }
+  ]
+};
+
+const combinedSchema = [blogSchema, breadcrumbSchema];
 ---
 
-<Base title={post.title} description={post.excerpt} image={post.image} current="/blog">
+<Base title={post.title} description={post.excerpt} image={post.image} current="/blog" schema={combinedSchema}>
 
   <article>
     <!-- Hero image -->
