@@ -9,25 +9,75 @@ interface Props {
   image?: string;
   current?: string;
   noFooter?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, image = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80', current = '', noFooter = false } = Astro.props;
+const { title, description, image = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80', current = '', noFooter = false, schema } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === 'Inicio' ? 'Valle Tech — Consultoría en tecnología para PyMEs' : `${title} — Valle Tech`;
+
+const baseSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Valle Tech",
+  "description": "Consultoría en tecnología e inteligencia artificial para PyMEs en México",
+  "url": "https://v4lle.tech",
+  "telephone": "+52",
+  "email": "hola@v4lle.tech",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tepic",
+    "addressRegion": "Nayarit",
+    "addressCountry": "MX"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "21.5044",
+    "longitude": "-104.8946"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Antonio Valle",
+    "jobTitle": "Consultor en tecnología",
+    "url": "https://v4lle.tech/sobre-mi"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "México"
+  },
+  "knowsLanguage": "es",
+  "openingHours": "Mo-Fr 08:00-17:00",
+  "sameAs": [
+    "https://github.com/v4lle"
+  ]
+};
 ---
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="generator" content={Astro.generator} />
+
+  <!-- Resource hints for external origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+  <!-- Fonts (link instead of CSS @import for faster loading) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Archivo:wght@400;500;600;700;800;900&family=Fira+Code:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Archivo:wght@400;500;600;700;800;900&family=Fira+Code:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Archivo:wght@400;500;600;700;800;900&family=Fira+Code:wght@300;400;500&display=swap" /></noscript>
 
   <!-- SEO -->
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
   <meta name="author" content="Antonio Valle — Valle Tech" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="geo.region" content="MX-NAY" />
+  <meta name="geo.placename" content="Tepic" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -35,6 +85,8 @@ const fullTitle = title === 'Inicio' ? 'Valle Tech — Consultoría en tecnolog�
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={image} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="es_MX" />
   <meta property="og:site_name" content="Valle Tech" />
 
@@ -44,17 +96,11 @@ const fullTitle = title === 'Inicio' ? 'Valle Tech — Consultoría en tecnolog�
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={image} />
 
-  <!-- Structured Data -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Valle Tech",
-    "description": "Consultoría en tecnología e inteligencia artificial para PyMEs en México",
-    "url": "https://v4lle.tech",
-    "address": { "@type": "PostalAddress", "addressLocality": "Tepic", "addressRegion": "Nayarit", "addressCountry": "MX" },
-    "founder": { "@type": "Person", "name": "Antonio Valle" },
-    "areaServed": "México"
-  })} />
+  <!-- Structured Data (base organization) -->
+  <script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
+
+  <!-- Page-specific structured data -->
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
   <!-- Theme init (prevent flash) -->
   <script is:inline>
@@ -71,10 +117,11 @@ const fullTitle = title === 'Inicio' ? 'Valle Tech — Consultoría en tecnolog�
   <noscript><style>.animate-fade-up,.animate-fade-in{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
   <div class="cursor-blob" id="cursor-blob"></div>
   <div class="side-dots" id="side-dots"></div>
   <Nav current={current} />
-  <main>
+  <main id="main-content">
     <slot />
   </main>
   {!noFooter && <Footer />}
