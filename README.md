@@ -2,36 +2,44 @@
 
 [![Deploy to GitHub Pages](https://github.com/V4lle-Tech/valle-tech-landing-page/actions/workflows/deploy.yml/badge.svg)](https://github.com/V4lle-Tech/valle-tech-landing-page/actions/workflows/deploy.yml)
 
-<p align="center">
-  <img src="public/v4lle-tech-light.png" alt="Valle Tech Logo" width="96"/>
-</p>
+Landing page oficial de [Valle Tech](https://v4lle.tech) — consultoría en tecnología e inteligencia artificial para PyMEs en México.
 
-Landing page oficial de Valle Tech, diseñada para presentar la propuesta de valor, servicios y contacto de la empresa.
+## Tecnologías
 
-## 🚀 Tecnologías principales
-
-![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
-![Vue 3](https://img.shields.io/badge/Vue.js-35495E?logo=vue.js&logoColor=4FC08D)
+![Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![Bun](https://img.shields.io/badge/Bun-000000?logo=bun&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=github-actions&logoColor=white)
 
-## 📦 Estructura del proyecto
+## Estructura del proyecto
 
-- `src/` — Código fuente principal (componentes, vistas, assets, rutas, i18n)
-- `public/` — Recursos públicos y favicon
-- `.github/workflows/` — Workflows de CI/CD
+```
+src/
+├── layouts/          # Layout base (SEO, Open Graph, temas)
+├── components/       # Componentes Astro (.astro) y React islands (.jsx)
+├── pages/            # Rutas del sitio (file-based routing)
+├── content/          # Datos en JSON (servicios, portafolio, blog)
+└── styles/           # CSS global con custom properties
+public/               # Archivos estáticos (favicon)
+```
 
-## 🛠️ Scripts principales
+## Desarrollo
 
-- `npm run dev` — Desarrollo local
-- `npm run build` — Build de producción
-- `npm run preview` — Previsualización del build
+Requisito: [Bun](https://bun.sh)
 
-## 🚢 Despliegue
+```bash
+bun install            # Instalar dependencias
+bun run dev            # Servidor de desarrollo
+bun run build          # Build de producción
+bun run preview        # Previsualizar build
+bun run check          # Verificar tipos
+```
+
+## Despliegue
 
 El despliegue se realiza automáticamente a GitHub Pages mediante GitHub Actions en cada push a `main`.
 
 ---
 
-> Proyecto mantenido bajo buenas prácticas de arquitectura, CI/CD y control de versiones.
+> Hecho con [Astro](https://astro.build) + [Bun](https://bun.sh).
