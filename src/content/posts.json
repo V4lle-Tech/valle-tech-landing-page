@@ -12,7 +12,7 @@
   {
     "slug": "app-nativa-vs-app-web",
     "title": "App nativa vs. app web: cuál conviene para tu negocio",
-    "date": "2026-02-14",
+    "date": "2026-02-10",
     "excerpt": "El 78% de las transacciones en México se hacen desde el celular. Pero eso no significa que necesites una app nativa. Te explico las diferencias reales en costo, rendimiento y resultados.",
     "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80",
     "category": "Tecnología",
@@ -22,7 +22,7 @@
   {
     "slug": "facturacion-electronica-lo-que-nadie-te-dice",
     "title": "Lo que nadie te dice de la facturación electrónica en tu sistema",
-    "date": "2026-02-10",
+    "date": "2026-02-03",
     "excerpt": "La reforma fiscal 2026 convirtió los CFDI falsos en delito penal. Si tu sistema de facturación no está al día, el riesgo ya no es solo una multa — es cárcel.",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
     "category": "Negocio",
@@ -32,7 +32,7 @@
   {
     "slug": "ia-para-pymes-sin-cuentos",
     "title": "IA para PyMEs: lo que sí funciona (y lo que es puro cuento)",
-    "date": "2026-02-10",
+    "date": "2026-01-27",
     "excerpt": "No todo lo que brilla es inteligencia artificial. Te explico qué herramientas de IA realmente le sirven a un negocio pequeño en México y cuáles son puro marketing.",
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
     "category": "Tecnología",
@@ -42,7 +42,7 @@
   {
     "slug": "5-modulos-que-tu-negocio-necesita",
     "title": "5 módulos que tu negocio realmente necesita (y 5 que no)",
-    "date": "2026-02-07",
+    "date": "2026-01-20",
     "excerpt": "El 70% de los ERPs no cumplen los objetivos originales del proyecto. Antes de comprar un sistema con 50 módulos, lee cuáles son los únicos 5 que de verdad necesitas al inicio.",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     "category": "Consejos",
@@ -52,7 +52,7 @@
   {
     "slug": "automatizar-para-cumplir-sat",
     "title": "Automatizar para cumplir: cómo la tecnología te quita el estrés fiscal",
-    "date": "2026-02-03",
+    "date": "2026-01-13",
     "excerpt": "El SAT recaudó 4.9 billones de pesos en 2024, un billón solo de auditorías a PyMEs. Si no automatizas tus procesos fiscales, estás jugando a la ruleta con tu negocio.",
     "image": "https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=800&q=80",
     "category": "Negocio",
@@ -62,7 +62,7 @@
   {
     "slug": "rrhh-sigue-en-excel",
     "title": "Tu negocio creció y RRHH sigue en Excel: qué hacer",
-    "date": "2026-01-28",
+    "date": "2026-01-06",
     "excerpt": "Cuando tu equipo pasa de 10 personas, Excel deja de ser una herramienta de RRHH y se convierte en una bomba de tiempo. Te cuento qué opciones tienes antes de que explote.",
     "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80",
     "category": "Negocio",
@@ -72,7 +72,7 @@
   {
     "slug": "por-que-tu-negocio-necesita-sistema-propio",
     "title": "¿Por qué tu negocio necesita un sistema propio?",
-    "date": "2026-01-25",
+    "date": "2025-12-30",
     "excerpt": "Excel está bien para empezar, pero llega un punto donde te frena. Te platico cuándo vale la pena invertir en un sistema a la medida.",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     "category": "Negocio",
@@ -82,7 +82,7 @@
   {
     "slug": "ia-para-desarrollar-software-mas-rapido",
     "title": "Cómo uso IA para desarrollar software más rápido (sin trucos)",
-    "date": "2026-01-21",
+    "date": "2025-12-23",
     "excerpt": "El 84% de los desarrolladores ya usan o planean usar IA. Pero la realidad es más complicada que lo que dicen los titulares. Te cuento cómo la uso yo en la práctica.",
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
     "category": "Tecnología",
@@ -92,7 +92,7 @@
   {
     "slug": "open-source-como-estrategia-de-negocio",
     "title": "Open source como estrategia de negocio: lo que aprendí publicando claude-tools",
-    "date": "2026-01-14",
+    "date": "2025-12-16",
     "excerpt": "¿Regalar código puede ser negocio? El mercado de servicios open source alcanzó $38 mil millones en 2025. Te cuento cómo publicar un proyecto abierto me trajo clientes.",
     "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
     "category": "Consejos",
@@ -102,7 +102,7 @@
   {
     "slug": "como-elegir-proveedor-tecnologia",
     "title": "Cómo elegir un proveedor de tecnología sin que te vean la cara",
-    "date": "2026-01-12",
+    "date": "2025-12-09",
     "excerpt": "Después de 15 años en esto, te comparto las banderas rojas que deberías buscar antes de firmar con alguien.",
     "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
     "category": "Consejos",
@@ -112,7 +112,7 @@
   {
     "slug": "donde-viven-los-datos-de-tu-negocio",
     "title": "¿Dónde viven los datos de tu negocio? (y qué pasa si se pierden)",
-    "date": "2026-01-07",
+    "date": "2025-12-02",
     "excerpt": "El 40% de las PyMEs no hacen respaldos de sus datos. El 60% de las que pierden sus datos cierran en menos de 6 meses. Esta conversación no puede esperar.",
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
     "category": "Negocio",
@@ -122,7 +122,7 @@
   {
     "slug": "servidor-local-vs-nube",
     "title": "Servidor local vs. nube: la decisión que tu negocio va a tener que tomar",
-    "date": "2025-12-28",
+    "date": "2025-11-25",
     "excerpt": "¿Conviene más un servidor propio o migrar a la nube? Te comparto costos reales, riesgos ocultos y mi experiencia usando ambos para que tomes la mejor decisión.",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
     "category": "Tecnología",
@@ -132,7 +132,7 @@
   {
     "slug": "lo-que-negocios-chicos-aprenden-de-grandes",
     "title": "Lo que los negocios chicos pueden aprender de los grandes (en tecnología)",
-    "date": "2025-12-18",
+    "date": "2025-11-18",
     "excerpt": "Las empresas grandes invierten millones en tecnología, pero muchas de sus estrategias pueden adaptarse a negocios pequeños sin gastar una fortuna.",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
     "category": "Consejos",
@@ -142,7 +142,7 @@
   {
     "slug": "transformacion-digital-instituciones",
     "title": "Transformación digital en instituciones: lo que funcionó y lo que no",
-    "date": "2025-12-08",
+    "date": "2025-11-11",
     "excerpt": "Después de construir una plataforma digital para la Universidad Autónoma de Nayarit, te cuento qué funcionó, qué fracasó y qué aplica para cualquier organización.",
     "image": "https://images.unsplash.com/photo-1523050854058-8df90110c476?w=800&q=80",
     "category": "Tecnología",
@@ -152,7 +152,7 @@
   {
     "slug": "por-que-estandarizar-desarrollo",
     "title": "¿Por qué estandarizar? Lo que aprendí armando plantillas para 7 tecnologías",
-    "date": "2025-11-28",
+    "date": "2025-11-04",
     "excerpt": "Los desarrolladores pierden 20 días de trabajo al año por problemas de entorno. Te cuento cómo creé plantillas para 7 tecnologías y por qué la estandarización es el futuro.",
     "image": "https://images.unsplash.com/photo-1537884944318-390069bb8665?w=800&q=80",
     "category": "Tecnología",
