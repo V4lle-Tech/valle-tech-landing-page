@@ -1,22 +1,22 @@
 {
-    "name": "VueJS Devcontainer",
-    "build": {
-      "dockerfile": "Dockerfile",
-      "context": "."
-    },
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "dbaeumer.vscode-eslint",
-          "esbenp.prettier-vscode",
-          "mubaidr.vuejs-extension-pack"
-        ],
-        "settings": {
-          "terminal.integrated.shell.linux": "/bin/bash"
-        }
+  "name": "Astro Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
       }
-    },
-    "forwardPorts": [3080],
-    "workspaceFolder": "/workspaces",
-    "remoteUser": "node"
-  }
+    }
+  },
+  "forwardPorts": [4321],
+  "workspaceFolder": "/workspaces",
+  "remoteUser": "node"
+}
