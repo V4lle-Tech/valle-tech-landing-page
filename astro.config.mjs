@@ -5,4 +5,9 @@ export default defineConfig({
   site: 'https://v4lle.tech',
   integrations: [react()],
   output: 'static',
+  vite: {
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
+    },
+  },
 });
