@@ -22,7 +22,7 @@ const baseSchema = {
   "name": "Valle Tech",
   "description": "Consultoría en tecnología e inteligencia artificial para PyMEs en México",
   "url": "https://v4lle.tech",
-  "telephone": "+52",
+  "telephone": "+52 3111181906",
   "email": "hola@v4lle.tech",
   "priceRange": "$$",
   "address": {
@@ -97,10 +97,10 @@ const baseSchema = {
   <meta name="twitter:image" content={image} />
 
   <!-- Structured Data (base organization) -->
-  <script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
 
   <!-- Page-specific structured data -->
-  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  {schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
   <!-- Theme init (prevent flash) -->
   <script is:inline>
@@ -109,6 +109,9 @@ const baseSchema = {
       document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
+
+  <!-- Sitemap discovery -->
+  <link rel="sitemap" href="/sitemap-index.xml" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
