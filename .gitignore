@@ -33,3 +33,6 @@ node_modules/
 .envbuilder.tmp/
 lost+found/
 inspiration/
+
+# Claude Code local settings
+.claude/settings.local.json
