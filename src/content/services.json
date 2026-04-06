@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "desarrollo-a-medida",
+    "title": "Desarrollo a tu medida",
+    "short": "Apps web y móviles que se adaptan a tu negocio.",
+    "icon": "💻",
+    "description": "Construyo aplicaciones web y móviles completas, desde la idea hasta producción. He desarrollado plataformas de ride-sharing con apps nativas para iOS y Android, sistemas ERP para PyMEs, puntos de venta, y plataformas universitarias — siempre con tecnologías modernas y probadas.",
+    "details": [
+      "Plataformas completas con backend, panel de administración y apps móviles (como GoCab, un sistema de ride-sharing con apps iOS, Android, panel web y backend en Firebase)",
+      "Sistemas ERP y de gestión para micro y pequeños negocios: inventarios, ventas, personal",
+      "Puntos de venta adaptados a la operación de cada negocio",
+      "Aplicaciones web con Laravel, Vue.js, React y Astro",
+      "Plataformas institucionales como Vincula UAN para la Universidad Autónoma de Nayarit"
+    ],
+    "tags": ["Laravel", "Vue.js", "React", "iOS", "Android", "Firebase"],
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+  },
+  {
+    "slug": "inteligencia-artificial",
+    "title": "Inteligencia artificial práctica",
+    "short": "IA que resuelve problemas reales de tu operación.",
+    "icon": "🤖",
+    "description": "Aplico IA donde realmente funciona. He construido pipelines de ingeniería de software potenciados por IA, herramientas profesionales para asistentes de código, e integraciones con APIs de modelos de lenguaje. Sin humo — solo herramientas que producen resultados.",
+    "details": [
+      "Pipelines de desarrollo de software asistidos por IA: desde la idea hasta el despliegue con documentación estandarizada en cada fase (Software Forge)",
+      "Suite profesional de herramientas y plugins para Claude Code, publicada como open-source (claude-tools)",
+      "Integración con APIs de modelos de lenguaje (GPT, Claude) para automatizar tareas de negocio",
+      "Asistentes internos que ayudan a tu equipo a ser más productivo",
+      "Análisis predictivo y procesamiento inteligente de datos para toma de decisiones"
+    ],
+    "tags": ["Claude", "GPT", "LLMs", "Agentes IA", "Open Source"],
+    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80"
+  },
+  {
+    "slug": "automatizacion",
+    "title": "Automatización de procesos",
+    "short": "Si es repetitivo, se puede automatizar.",
+    "icon": "⚡",
+    "description": "Si tu operación tiene tareas repetitivas, probablemente se puede automatizar. He construido sistemas de respaldo automático para clusters de bases de datos, herramientas de integración con APIs de GitLab, analizadores de documentos fiscales y scripts de automatización para operaciones del día a día.",
+    "details": [
+      "Respaldos automáticos de clusters MySQL con monitoreo y notificaciones",
+      "Automatización de operaciones con APIs: GitLab, servicios internos, plataformas de terceros",
+      "Lectura y conciliación automática de documentos fiscales y controles volumétricos (CFDI, XSD)",
+      "Scripts de automatización para tareas de operación, despliegue y mantenimiento",
+      "Plantillas de email y flujos de comunicación automatizados para múltiples servicios"
+    ],
+    "tags": ["APIs", "Backups", "Scripts", "Fiscal", "Integración"],
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+  },
+  {
+    "slug": "servidores-infraestructura",
+    "title": "Servidores e infraestructura",
+    "short": "Tu app en la nube, monitoreada y respaldada.",
+    "icon": "☁️",
+    "description": "Defino infraestructura como código con Terraform, construyo imágenes Docker optimizadas para cada stack, y estandarizo entornos de desarrollo con devcontainers. Todo documentado, reproducible y listo para escalar.",
+    "details": [
+      "Infraestructura como código con Terraform/HCL para centros de datos y servicios en la nube",
+      "Imágenes Docker especializadas: Laravel (PHP 8.3), entornos legacy (PHP 5.6), y más — publicadas y mantenidas",
+      "Plantillas devcontainer estandarizadas para Laravel, Java Spring Boot, .NET Core, Python Django, Node.js y más",
+      "Entornos de desarrollo reproducibles con Coder Workspaces para equipos completos",
+      "Experimentos con Kubernetes, configuración SSL y despliegue automatizado con GitHub Actions"
+    ],
+    "tags": ["Terraform", "Docker", "K8s", "Devcontainers", "GitHub Actions"],
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
+  },
+  {
+    "slug": "asesoria-tecnica",
+    "title": "Asesoría técnica",
+    "short": "Un plan claro para tu tecnología.",
+    "icon": "🧭",
+    "description": "Con experiencia en más de 8 stacks tecnológicos (PHP, Python, JavaScript, TypeScript, C#, Java, Objective-C, HCL) y proyectos en industrias desde transporte hasta educación, te ayudo a tomar decisiones técnicas informadas y a trazar un camino realista.",
+    "details": [
+      "Diagnóstico de infraestructura, código y arquitectura de sistemas existentes",
+      "Evaluación y selección de tecnologías basada en experiencia real con múltiples stacks",
+      "Referencia práctica de patrones de diseño y buenas prácticas de desarrollo",
+      "Estandarización de entornos de desarrollo para equipos con devcontainers y Docker",
+      "Roadmap tecnológico con prioridades y presupuesto basado en proyectos reales entregados"
+    ],
+    "tags": ["Multi-stack", "Arquitectura", "Patrones", "Estrategia", "Equipos"],
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+  }
+]

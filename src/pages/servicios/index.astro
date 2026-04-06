@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import services from '../../content/services.json';
+
+const servicesListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Servicios de Valle Tech",
+  "itemListElement": services.map((svc, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": svc.title,
+    "url": `https://v4lle.tech/servicios/${svc.slug}`
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://v4lle.tech/" },
+    { "@type": "ListItem", "position": 2, "name": "Servicios" }
+  ]
+};
+---
+
+<Base title="Servicios" description="Desarrollo web, inteligencia artificial, automatización, infraestructura en la nube y asesoría técnica para PyMEs en México." current="/servicios" schema={[servicesListSchema, breadcrumbSchema]}>
+
+  <section class="page-hero" id="intro" data-nav-section="Intro">
+    <div class="container">
+      <p class="page-hero-label">QUÉ HAGO</p>
+      <h1>Resuelvo<br/>problemas con<br/>tecnología<span style="color:var(--accent)">.</span></h1>
+      <p>
+        No vendo tecnologías de moda. Entiendo tu negocio,
+        encuentro dónde está el problema y lo resuelvo con la herramienta correcta.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad" id="lista-servicios" data-nav-section="Servicios">
+    <div class="container">
+      <div class="services-grid">
+        {services.map((svc, i) => (
+          <a href={`/servicios/${svc.slug}`} class="service-card" style={`--delay: ${0.1 + i * 0.08}s`}>
+            <div class="service-card-img img-block">
+              <img src={svc.image} alt={svc.title} loading="lazy" />
+              <div class="overlay"></div>
+              <div class="content">
+                <span class="service-card-icon">{svc.icon}</span>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <span class="font-mono service-card-num">0{i + 1}</span>
+              <h2 class="font-display service-card-title">{svc.title}</h2>
+              <p>{svc.short}</p>
+              <div class="service-card-tags">
+                {svc.tags.map(tag => <span class="tag">{tag}</span>)}
+              </div>
+              <span class="font-mono service-card-link">Ver detalle →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="contacto-cta" data-nav-section="Contacto" style="border-top:1px solid var(--border);text-align:center">
+    <div class="container">
+      <h2 class="section-title font-display">¿No sabes cuál necesitas<span style="color:var(--accent)">?</span></h2>
+      <p style="color:var(--text-mid);font-size:1.02rem;line-height:1.8;font-weight:300;max-width:480px;margin:1.5rem auto 2.5rem">
+        Normal — muchas veces el primer paso es una plática para entender
+        qué está pasando. Agenda una llamada gratis y vemos juntos.
+      </p>
+      <a href="/contacto" class="btn-primary">Platiquemos →</a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .services-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+  @media(min-width:768px){.services-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+
+  .service-card{
+    display:block;border:1px solid var(--border);border-radius:10px;overflow:hidden;
+    transition:all 0.5s var(--ease);
+  }
+  .service-card:hover{border-color:var(--accent);transform:translateY(-6px);box-shadow:0 16px 40px var(--card-shadow)}
+  .service-card-img{height:200px;position:relative}
+  .service-card-img img{width:100%;height:100%;object-fit:cover}
+  .service-card-icon{font-size:2rem;position:absolute;bottom:1rem;left:1.2rem}
+  .service-card-body{padding:1.5rem 1.6rem}
+  .service-card-num{font-size:0.58rem;color:var(--accent);letter-spacing:0.08em}
+  .service-card-title{font-weight:800;font-size:1.3rem;text-transform:uppercase;letter-spacing:-0.03em;margin:0.4rem 0 0.6rem}
+  .service-card-body p{color:var(--text-mid);font-size:0.9rem;line-height:1.65;font-weight:300;margin-bottom:1rem}
+  .service-card-tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.2rem}
+  .service-card-link{font-size:0.62rem;color:var(--accent);letter-spacing:0.08em;transition:transform 0.3s}
+  .service-card:hover .service-card-link{transform:translateX(8px);display:inline-block}
+</style>
+
+<script>
+  import { pageHeroReveal, revealBatch } from '../../scripts/gsap-init';
+  pageHeroReveal('.page-hero');
+  revealBatch('.service-card');
+</script>

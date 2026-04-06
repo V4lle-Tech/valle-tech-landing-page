@@ -1,0 +1,22 @@
+---
+import VLogo from './VLogo.astro';
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="/" class="footer-brand">
+      <VLogo size={58} />
+    </a>
+    <span class="font-mono footer-copy">© {new Date().getFullYear()} · Hecho en Tepic, Nay. 🇲🇽</span>
+    <a href="mailto:hola@v4lle.tech" class="font-mono footer-email">hola@v4lle.tech</a>
+  </div>
+</footer>
+
+<style>
+  .site-footer{border-top:1px solid var(--border);padding:2rem 1.5rem;transition:border-color 0.5s}
+  .footer-inner{display:flex;flex-direction:column;gap:1rem;text-align:center;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto}
+  .footer-brand{display:flex;align-items:center;gap:0.4rem;text-decoration:none;color:var(--text)}
+  .footer-copy{font-size:0.55rem;color:var(--text-low);letter-spacing:0.05em;transition:color 0.5s}
+  .footer-email{font-size:0.58rem;color:var(--text-mid);transition:color 0.3s}
+  .footer-email:hover{color:var(--accent)}
+  @media(min-width:768px){.footer-inner{flex-direction:row;text-align:left}}
+</style>

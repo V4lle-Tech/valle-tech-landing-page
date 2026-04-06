@@ -1,0 +1,209 @@
+---
+import Base from '../../layouts/Base.astro';
+import posts from '../../content/posts.json';
+
+const sortedPosts = [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Group posts by year-month
+type PostGroup = { key: string; label: string; year: number; month: number; posts: typeof sortedPosts };
+const grouped: PostGroup[] = [];
+
+sortedPosts.forEach(post => {
+  const d = new Date(post.date + 'T12:00:00');
+  const year = d.getFullYear();
+  const month = d.getMonth() + 1;
+  const key = `${year}-${String(month).padStart(2, '0')}`;
+  const label = d.toLocaleDateString('es-MX', { year: 'numeric', month: 'long' });
+
+  let group = grouped.find(g => g.key === key);
+  if (!group) {
+    group = { key, label, year, month, posts: [] };
+    grouped.push(group);
+  }
+  group.posts.push(post);
+});
+
+// Count total
+const totalPosts = sortedPosts.length;
+
+const blogListSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog — Valle Tech",
+  "description": "Artículos sobre tecnología, inteligencia artificial y consejos para PyMEs en México.",
+  "url": "https://v4lle.tech/blog",
+  "inLanguage": "es-MX",
+  "author": { "@type": "Person", "name": "Antonio Valle" },
+  "blogPost": sortedPosts.slice(0, 10).map(p => ({
+    "@type": "BlogPosting",
+    "headline": p.title,
+    "url": `https://v4lle.tech/blog/${p.slug}`,
+    "datePublished": p.date,
+    "image": p.image
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://v4lle.tech/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog" }
+  ]
+};
+---
+
+<Base title="Blog" description="Artículos sobre tecnología, inteligencia artificial y consejos para PyMEs en México. Sin tecnicismos, directo al grano." current="/blog" schema={[blogListSchema, breadcrumbSchema]}>
+
+  <section class="page-hero" id="intro" data-nav-section="Intro">
+    <div class="container">
+      <p class="page-hero-label">BLOG</p>
+      <h1>Notas sobre<br/>tecnología y<br/>negocios<span style="color:var(--accent)">.</span></h1>
+      <p>
+        Ideas, consejos y lecciones de más de 15 años trabajando con PyMEs en México.
+        Sin tecnicismos — o por lo menos lo intento.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad" id="articulos" data-nav-section="Artículos">
+    <div class="container">
+
+      <!-- Month filter chips -->
+      <nav class="blog-filters" aria-label="Filtrar por mes">
+        <button class="blog-chip active font-mono" data-filter="all">
+          Todos <span class="blog-chip-count">{totalPosts}</span>
+        </button>
+        {grouped.map(group => (
+          <button class="blog-chip font-mono" data-filter={group.key}>
+            {group.label} <span class="blog-chip-count">{group.posts.length}</span>
+          </button>
+        ))}
+      </nav>
+
+      <!-- Grouped posts -->
+      {grouped.map((group, gi) => (
+        <div class="blog-month-group" data-month={group.key}>
+          <div class="blog-month-header">
+            <h2 class="blog-month-label font-mono">{group.label}</h2>
+            <span class="blog-month-count font-mono">{group.posts.length} {group.posts.length === 1 ? 'artículo' : 'artículos'}</span>
+            <div class="blog-month-line"></div>
+          </div>
+          <div class="blog-grid">
+            {group.posts.map((post, i) => (
+              <a href={`/blog/${post.slug}`} class="blog-card" data-category={post.category} style={`--delay: ${0.05 + i * 0.08}s`}>
+                <div class="blog-card-img img-block">
+                  <img src={post.image} alt={post.title} loading={gi === 0 && i < 2 ? "eager" : "lazy"} />
+                  <div class="overlay"></div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-meta">
+                    <span class="tag">{post.category}</span>
+                    <span class="font-mono" style="font-size:0.55rem;color:var(--text-low)">{post.readTime}</span>
+                  </div>
+                  <h3 class="font-display blog-card-title">{post.title}</h3>
+                  <p>{post.excerpt}</p>
+                  <time class="font-mono blog-card-date" datetime={post.date}>
+                    {new Date(post.date + 'T12:00:00').toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  </time>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  /* ═══ Filter chips ═══ */
+  .blog-filters{
+    display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:3rem;
+    padding-bottom:1.5rem;border-bottom:1px solid var(--border);
+  }
+  .blog-chip{
+    background:transparent;color:var(--text-low);border:1px solid var(--border);
+    padding:0.4rem 0.9rem;font-size:0.6rem;letter-spacing:0.06em;
+    border-radius:20px;cursor:pointer;transition:all 0.3s var(--ease);
+    display:inline-flex;align-items:center;gap:0.4rem;
+    text-transform:capitalize;
+  }
+  .blog-chip:hover{border-color:var(--text-mid);color:var(--text-mid)}
+  .blog-chip.active{
+    border-color:var(--accent);color:var(--accent);
+    background:var(--accent-glow);
+  }
+  .blog-chip-count{
+    font-size:0.5rem;opacity:0.6;
+  }
+
+  /* ═══ Month group ═══ */
+  .blog-month-group{margin-bottom:3.5rem}
+  .blog-month-group:last-child{margin-bottom:0}
+  .blog-month-group.hidden{display:none}
+
+  .blog-month-header{
+    display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;
+  }
+  .blog-month-label{
+    font-size:0.65rem;color:var(--accent);letter-spacing:0.15em;
+    text-transform:uppercase;white-space:nowrap;margin:0;
+  }
+  .blog-month-count{
+    font-size:0.52rem;color:var(--text-low);letter-spacing:0.05em;white-space:nowrap;
+  }
+  .blog-month-line{
+    flex:1;height:1px;background:var(--border);
+  }
+
+  /* ═══ Blog grid ═══ */
+  .blog-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+  @media(min-width:768px){.blog-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+
+  .blog-card{
+    display:block;border:1px solid var(--border);border-radius:10px;overflow:hidden;
+    transition:all 0.5s var(--ease);
+  }
+  .blog-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 32px var(--card-shadow)}
+
+  .blog-card-img{height:200px;position:relative}
+  .blog-card-img img{width:100%;height:100%;object-fit:cover}
+
+  .blog-card-body{padding:1.5rem 1.6rem}
+  .blog-card-meta{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem}
+  .blog-card-title{font-weight:800;font-size:1.15rem;letter-spacing:-0.02em;line-height:1.25;margin-bottom:0.6rem}
+  .blog-card-body p{color:var(--text-mid);font-size:0.88rem;line-height:1.65;font-weight:300;margin-bottom:1rem}
+  .blog-card-date{font-size:0.58rem;color:var(--text-low);letter-spacing:0.05em}
+</style>
+
+<script>
+  import { pageHeroReveal, revealBatch } from '../../scripts/gsap-init';
+  pageHeroReveal('.page-hero');
+  revealBatch('.blog-card');
+
+  // Filter logic
+  const chips = document.querySelectorAll<HTMLButtonElement>('.blog-chip');
+  const groups = document.querySelectorAll<HTMLDivElement>('.blog-month-group');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const filter = chip.dataset.filter;
+
+      // Update active chip
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      // Show/hide groups
+      groups.forEach(group => {
+        if (filter === 'all' || group.dataset.month === filter) {
+          group.classList.remove('hidden');
+        } else {
+          group.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

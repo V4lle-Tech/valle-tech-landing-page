@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+import portfolio from '../content/portfolio.json';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://v4lle.tech/" },
+    { "@type": "ListItem", "position": 2, "name": "Portafolio" }
+  ]
+};
+---
+
+<Base title="Portafolio" description="Casos de éxito: sistemas de punto de venta, chatbots, automatización de procesos y migración a la nube para PyMEs en México." current="/portafolio" schema={breadcrumbSchema}>
+
+  <section class="page-hero" id="intro" data-nav-section="Intro">
+    <div class="container">
+      <p class="page-hero-label">PORTAFOLIO</p>
+      <h1>Proyectos que<br/>funcionan en<br/>el mundo real<span style="color:var(--accent)">.</span></h1>
+      <p>
+        Estos son algunos de los proyectos donde he trabajado.
+        Por privacidad, no menciono algunos nombres — pero los resultados hablan solos.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad" id="proyectos" data-nav-section="Proyectos">
+    <div class="container">
+      {portfolio.map((project, i) => (
+        <article class="case-study" style={`--delay: ${0.1 + i * 0.1}s`}>
+          <div class="case-img img-block">
+            <img src={project.image} alt={project.title} loading="lazy" />
+            <div class="overlay"></div>
+            <div class="content">
+              <span class="font-mono case-year">{project.year}</span>
+            </div>
+          </div>
+          <div class="case-body">
+            <div class="case-meta">
+              <span class="tag">{project.category}</span>
+              <span class="font-mono" style="font-size:0.58rem;color:var(--text-low)">{project.location}</span>
+            </div>
+            <h2 class="font-display case-title">{project.title}</h2>
+
+            <div class="case-section">
+              <h4 class="font-mono case-label">EL PROBLEMA</h4>
+              <p>{project.challenge}</p>
+            </div>
+
+            <div class="case-section">
+              <h4 class="font-mono case-label">LA SOLUCIÓN</h4>
+              <p>{project.solution}</p>
+            </div>
+
+            <div class="case-section">
+              <h4 class="font-mono case-label">RESULTADOS</h4>
+              <div class="case-results">
+                {project.results.map(r => (
+                  <div class="case-result">
+                    <span style="color:var(--accent);font-weight:600">✓</span>
+                    <span>{r}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:1.5rem">
+              {project.tags.map(tag => <span class="tag">{tag}</span>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-pad" id="contacto-cta" data-nav-section="Contacto" style="border-top:1px solid var(--border);text-align:center">
+    <div class="container">
+      <h2 class="section-title font-display">¿Tu proyecto va aquí<span style="color:var(--accent)">?</span></h2>
+      <p style="color:var(--text-mid);font-size:1.02rem;line-height:1.8;font-weight:300;max-width:450px;margin:1.5rem auto 2.5rem">
+        Cuéntame qué necesitas. Si puedo ayudarte, te digo cómo y cuánto. Si no, te lo digo también.
+      </p>
+      <a href="/contacto" class="btn-primary">Platiquemos →</a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .case-study{
+    display:grid;grid-template-columns:1fr;gap:2rem;
+    padding:2.5rem 0;border-bottom:1px solid var(--border);
+  }
+  .case-study:last-child{border-bottom:none}
+  @media(min-width:768px){.case-study{grid-template-columns:5fr 7fr;gap:3rem}}
+
+  .case-img{border-radius:8px;height:240px;position:relative}
+  .case-img img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+  .case-year{position:absolute;bottom:1rem;left:1rem;font-size:0.6rem;color:rgba(255,255,255,0.6);letter-spacing:0.12em}
+  @media(min-width:768px){.case-img{height:100%;min-height:300px}}
+
+  .case-meta{display:flex;align-items:center;gap:1rem;margin-bottom:0.8rem}
+  .case-title{font-weight:800;font-size:clamp(1.2rem,2.5vw,1.6rem);text-transform:uppercase;letter-spacing:-0.02em;line-height:1.15;margin-bottom:1.5rem}
+
+  .case-section{margin-bottom:1.2rem}
+  .case-label{font-size:0.55rem;color:var(--accent);letter-spacing:0.15em;margin-bottom:0.4rem}
+  .case-section p{color:var(--text-mid);font-size:0.9rem;line-height:1.7;font-weight:300}
+
+  .case-results{display:flex;flex-direction:column;gap:0.4rem}
+  .case-result{display:flex;gap:0.6rem;font-size:0.88rem;color:var(--text-mid);font-weight:300}
+</style>
+
+<script>
+  import { pageHeroReveal, revealBatch } from '../scripts/gsap-init';
+  pageHeroReveal('.page-hero');
+  revealBatch('.case-study');
+  revealBatch('.case-body > *');
+</script>

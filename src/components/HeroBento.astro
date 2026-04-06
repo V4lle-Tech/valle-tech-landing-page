@@ -1,0 +1,144 @@
+---
+import portfolio from '../content/portfolio.json';
+import VIcon from './VIcon.astro';
+
+const p = portfolio; // 4 items
+---
+
+<div class="hero-bento" id="hero-bento">
+  <div class="bento-grid">
+
+    <!-- 1 ▸ Large project image (spans 2 rows) -->
+    <a href="/portafolio" class="bento-cell bento-img bento-span-2r" data-bento-cell>
+      <img src={p[0].image} alt={p[0].title} loading="eager" />
+      <div class="bento-img-overlay">
+        <span class="bento-img-cat font-mono">{p[0].category}</span>
+        <span class="bento-img-title font-display">{p[0].title}</span>
+      </div>
+    </a>
+
+    <!-- 2 ▸ Code snippet -->
+    <div class="bento-cell bento-code" data-bento-cell>
+      <pre class="font-mono"><span class="code-kw">const</span> <span class="code-fn">solve</span> = <span class="code-kw">async</span> (problema) =&gt; {'{'}<br/>  <span class="code-kw">const</span> plan = <span class="code-kw">await</span> <span class="code-fn">analizar</span>(problema)<br/>  <span class="code-kw">const</span> resultado = <span class="code-fn">construir</span>(plan)<br/>  <span class="code-kw">return</span> resultado <span class="code-cm">// ✓</span><br/>{'}'}</pre>
+    </div>
+
+    <!-- 3 ▸ Big stat -->
+    <div class="bento-cell bento-stat" data-bento-cell>
+      <span class="bento-stat-n font-display">15<span style="color:var(--accent)">+</span></span>
+      <span class="bento-stat-l font-mono">AÑOS CONSTRUYENDO</span>
+    </div>
+
+    <!-- 4 ▸ Tech stack tags -->
+    <div class="bento-cell bento-tags" data-bento-cell>
+      {['Python','React','IA','Azure','Node','Laravel','Docker','Astro'].map(t => (
+        <span class="bento-tag font-mono">{t}</span>
+      ))}
+    </div>
+
+    <!-- 5 ▸ Second project image (spans 2 rows) -->
+    <a href="/portafolio" class="bento-cell bento-img bento-span-2r" data-bento-cell>
+      <img src={p[1].image} alt={p[1].title} loading="eager" />
+      <div class="bento-img-overlay">
+        <span class="bento-img-cat font-mono">{p[1].category}</span>
+        <span class="bento-img-title font-display">{p[1].title}</span>
+      </div>
+    </a>
+
+    <!-- 6 ▸ Accent block with icon -->
+    <div class="bento-cell bento-accent" data-bento-cell>
+      <VIcon size={36} secondary="rgb(232,232,236)" color='rgb(232,232,236)' />
+      <span class="font-mono bento-accent-label">TEPIC · REMOTO</span>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .hero-bento{
+    position:relative;width:100%;height:100%;min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    padding:5rem 1.5rem 2rem;
+  }
+
+  .bento-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:repeat(3, 1fr);
+    gap:0.6rem;
+    width:100%;max-width:520px;
+    height:min(78vh, 680px);
+  }
+
+  /* Cells — background matches page for seamless integration */
+  .bento-cell{
+    border-radius:12px;overflow:hidden;position:relative;
+    border:1px solid var(--border);
+    background:var(--bg);
+    opacity:0;
+    transition:border-color 0.4s var(--ease),box-shadow 0.4s var(--ease);
+  }
+  .bento-cell.is-ready{
+    opacity:1;
+  }
+  .bento-cell.is-ready:hover{
+    border-color:var(--accent);
+    box-shadow:inset 0 0 0 1px var(--accent);
+  }
+
+  .bento-span-2r{grid-row:span 2}
+
+  /* Image cells */
+  .bento-img{text-decoration:none;color:#fff;cursor:pointer}
+  .bento-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--ease)}
+  .bento-img:hover img{transform:scale(1.06)}
+
+  .bento-img-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 55%);
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:1rem;opacity:0;transition:opacity 0.4s var(--ease);
+  }
+  .bento-img:hover .bento-img-overlay{opacity:1}
+  .bento-img-cat{font-size:0.48rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-bright);margin-bottom:0.15rem}
+  .bento-img-title{font-size:0.7rem;font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+  /* Code cell */
+  .bento-code{
+    padding:1rem;display:flex;align-items:center;
+  }
+  .bento-code pre{
+    font-size:0.62rem;line-height:1.9;color:var(--text-mid);
+    white-space:pre-wrap;
+  }
+  .code-kw{color:var(--accent-bright)}
+  .code-fn{color:var(--text-high)}
+  .code-cm{color:var(--text-low);opacity:0.6}
+
+  /* Stat cell */
+  .bento-stat{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:1rem;
+  }
+  .bento-stat-n{font-size:clamp(2.5rem,5vw,3.5rem);font-weight:900;line-height:1;letter-spacing:-0.04em}
+  .bento-stat-l{font-size:0.5rem;letter-spacing:0.15em;color:var(--text-low);margin-top:0.3rem}
+
+  /* Tags cell */
+  .bento-tags{
+    padding:0.8rem;display:flex;flex-wrap:wrap;align-content:center;gap:0.35rem;
+  }
+  .bento-tag{
+    font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;
+    padding:0.25rem 0.55rem;border-radius:20px;
+    background:var(--tag-bg);border:1px solid var(--tag-border);
+    color:var(--text-mid);transition:color 0.3s var(--ease),border-color 0.3s var(--ease);
+  }
+  .bento-tag:hover{color:var(--accent-bright);border-color:var(--accent)}
+
+  /* Accent cell */
+  .bento-accent{
+    background:var(--accent-solid);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;
+    color:#fff;
+  }
+  .bento-accent-label{font-size:0.5rem;letter-spacing:0.14em;opacity:0.7}
+</style>

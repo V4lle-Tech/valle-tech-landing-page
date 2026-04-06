@@ -1,29 +1,21 @@
 {
-  "name": "valle-tech-landing-page",
-  "private": true,
-  "version": "0.0.0",
+  "name": "valle-tech",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "dependencies": {
-    "@microsoft/clarity": "^1.0.0",
-    "@vueuse/core": "^10.7.2",
-    "motion": "^10.17.0",
-    "vue": "^3.4.38",
-    "vue-i18n": "^9.14.4",
-    "vue-router": "^4.2.5"
-  },
-  "devDependencies": {
-    "@types/node": "^22.15.27",
-    "@vitejs/plugin-vue": "^5.1.3",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.3",
-    "vite": "^5.4.2",
-    "vue-tsc": "^2.1.4"
+    "@astrojs/check": "^0.9.0",
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.8.0",
+    "gsap": "^3.14.2",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "typescript": "^5.8.0"
   }
 }

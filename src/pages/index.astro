@@ -1,0 +1,283 @@
+---
+import Base from '../layouts/Base.astro';
+import VIcon from '../components/VIcon.astro';
+import RotatingBadge from '../components/RotatingBadge.astro';
+import Counter from '../components/Counter.jsx';
+import Accordion from '../components/Accordion.jsx';
+import HeroBento from '../components/HeroBento.astro';
+import services from '../content/services.json';
+
+const stats = [
+  { n: 15, s: '+', l: 'Años', sub: 'trabajando con tecnología' },
+  { n: 60, s: '+', l: 'Proyectos', sub: 'entre colaboraciones y propios' },
+  { n: 10, s: '+', l: 'Clientes', sub: 'confían en mis soluciones' },
+  { n: 8, s: '+', l: 'Industrias', sub: 'retail, logística, educación, campo...' },
+];
+
+const steps = [
+  { n: '01', title: 'Platicamos', desc: 'Me cuentas cómo funciona tu negocio, qué te duele y a dónde quieres llegar.' },
+  { n: '02', title: 'Te propongo', desc: 'Armo una propuesta con alcance, presupuesto cerrado y fechas realistas.' },
+  { n: '03', title: 'Construyo', desc: 'Trabajo en ciclos cortos y te muestro avances cada dos semanas.' },
+  { n: '04', title: 'Entrego', desc: 'Tu proyecto sale a producción con pruebas, documentación y capacitación.' },
+  { n: '05', title: 'Te acompaño', desc: 'Monitoreo, soporte y mejoras para que tu sistema evolucione contigo.' },
+];
+
+const marqueeItems = ['DESARROLLO WEB', 'INTELIGENCIA ARTIFICIAL', 'SERVIDORES', 'AUTOMATIZACIÓN', 'APPS MÓVILES', 'ASESORÍA TÉCNICA', 'BASES DE DATOS', 'MONITOREO'];
+---
+
+<Base title="Inicio" description="Consultoría en tecnología e inteligencia artificial para PyMEs en México. Más de 15 años de experiencia. Desarrollo, automatización, infraestructura." current="/">
+
+  <!-- HERO -->
+  <section class="hero-section" id="inicio" data-nav-section="Inicio">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge hide-mobile">
+          <RotatingBadge size={130} />
+        </div>
+        <div class="hero-status font-mono">
+          <span class="status-dot"></span>
+          CONTRATADO · NO DISPONIBLE 2026
+        </div>
+
+        <h1 class="hero-title font-display">
+          <span>Tu negocio</span>
+          <span style="color:var(--accent)">merece</span>
+          <span class="hero-stroke">mejor</span>
+          <span>tecnología.</span>
+        </h1>
+
+        <p class="hero-desc">
+          Soy Antonio — llevo más de 15 años construyendo soluciones de tecnología y poner esa experiencia
+          al servicio de PyMEs en México me entusiasma.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="/contacto" class="btn-primary">Platiquemos →</a>
+          <a href="/servicios" class="btn-outline">Ver servicios</a>
+        </div>
+      </div>
+
+      <div class="hero-img-col">
+        <HeroBento />
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      {[...Array(2)].flatMap(() =>
+        marqueeItems.map((x) =>
+          <span class="marquee-item font-display">{x}</span>
+        )
+      )}
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section-pad" id="servicios" data-nav-section="Servicios">
+    <div class="container">
+      <span class="section-label">01 — QUÉ HAGO</span>
+      <h2 class="section-title">Resuelvo problemas<br/>con tecnología<span style="color:var(--accent)">.</span></h2>
+      <div style="margin-top:3rem">
+        <Accordion client:visible items={services} />
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SECTION -->
+  <section class="ai-section" id="ia" data-nav-section="IA">
+    <div class="ai-grid">
+      <div class="ai-img-col">
+        <div class="img-block" style="height:100%;min-height:500px">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900&q=80" alt="Servidores e infraestructura" loading="lazy" style="width:100%;height:100%;object-fit:cover" />
+          <div class="overlay" style="background:rgba(1,85,187,0.7)"></div>
+          <div class="content ai-img-content">
+            <span class="font-mono" style="font-size:0.6rem;color:rgba(255,255,255,0.5);letter-spacing:0.15em">HERRAMIENTAS QUE FUNCIONAN</span>
+            <h3 class="font-display" style="font-weight:900;font-size:2.5rem;color:#fff;text-transform:uppercase;letter-spacing:-0.04em;line-height:1;margin-top:0.5rem">IA al servicio<br/>de tu negocio</h3>
+          </div>
+        </div>
+      </div>
+      <div class="ai-content-col">
+        <span class="section-label" style="opacity:0.5; color:#fff">02 — INTELIGENCIA ARTIFICIAL</span>
+        <h2 class="section-title" style="margin-bottom:1.5rem">IA sin cuentos<span style="opacity:0.3">.</span></h2>
+        <p class="ai-body">
+          La inteligencia artificial no es magia — es una herramienta más en la caja.
+          Yo la uso para cosas concretas: un chatbot que atiende a tus clientes
+          cuando no estás, un sistema que lee tus facturas solito, o un tablero que
+          te avisa cuando algo se está saliendo de control.
+        </p>
+        <div class="ai-cards">
+          <div class="ai-card"><h4>Chatbots para atención</h4><p>Responden preguntas frecuentes y levantan tickets mientras duermes.</p></div>
+          <div class="ai-card"><h4>Lectura de documentos</h4><p>Facturas, contratos, reportes — procesados sin captura manual.</p></div>
+          <div class="ai-card"><h4>Tableros inteligentes</h4><p>Números que te dicen qué está pasando y qué podría pasar.</p></div>
+          <div class="ai-card"><h4>Desarrollo más ágil</h4><p>Entrego más rápido porque mis herramientas también son inteligentes.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section" id="cifras" data-nav-section="Cifras">
+    <div class="stats-watermark font-display">15</div>
+    <div class="section-pad container" style="position:relative">
+      <span class="section-label" style="color:var(--stats-accent)">03 — EN NÚMEROS</span>
+      <h2 class="section-title" style="margin-bottom:3rem">No es plática,<br/>son resultados<span style="color:var(--stats-accent)">.</span></h2>
+      <div class="stat-grid">
+        {stats.map(s => (
+          <div class="stat-item">
+            <div class="font-display stat-number"><Counter client:visible end={s.n} suffix={s.s} /></div>
+            <div class="stat-label">{s.l}</div>
+            <div class="font-mono stat-sub">{s.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section-pad" id="proceso" data-nav-section="Proceso">
+    <div class="container">
+      <span class="section-label">04 — CÓMO TRABAJO</span>
+      <h2 class="section-title" style="margin-bottom:3.5rem">Así funciona<br/>el proceso<span style="color:var(--accent)">.</span></h2>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        {steps.map((step) => (
+          <div class="timeline-item">
+            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <span class="font-mono" style="font-size:0.58rem;color:var(--accent);letter-spacing:0.08em">{step.n}</span>
+            <h3 class="font-display timeline-step-title">{step.title}</h3>
+            <p style="color:var(--text-mid);font-size:0.92rem;line-height:1.7;font-weight:300;max-width:480px">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section-pad" id="contacto-cta" data-nav-section="Contacto">
+    <div class="cta-watermark font-display">VALLE</div>
+    <div style="position:relative;max-width:550px;margin:0 auto;text-align:center">
+      <VIcon size={40} />
+      <h2 class="font-display cta-mega">
+        <span style="color:var(--text-low)">¿</span>Platicamos<span style="color:var(--accent)">?</span>
+      </h2>
+      <p style="color:var(--text-mid);font-size:1.02rem;line-height:1.8;font-weight:300;max-width:440px;margin:0 auto 2.5rem">
+        Agéndame 30 minutos. Me cuentas qué necesitas, te digo si puedo
+        ayudarte y cómo. Sin costo, sin compromiso, sin rollo.
+      </p>
+      <a href="/contacto" class="btn-primary">Agenda tu llamada →</a>
+      <p class="font-mono" style="font-size:0.6rem;color:var(--text-low);margin-top:1.2rem;letter-spacing:0.08em">
+        GRATIS · SIN COMPROMISO · 30 MIN
+      </p>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  /* Hero */
+  .hero-section{position:relative}
+  .hero-grid{display:grid;grid-template-columns:1fr;min-height:100vh}
+  .hero-content{padding:7rem 1.5rem 3rem;display:flex;flex-direction:column;justify-content:center}
+  .hero-img-col{display:none}
+  .hero-status{font-size:0.62rem;color:var(--accent);letter-spacing:0.18em;display:flex;align-items:center;gap:0.7rem;margin-bottom:1.5rem}
+  .status-dot{width:6px;height:6px;border-radius:50%;background:#c54022;animation:pulse-green 2s infinite}
+  .hero-title{font-weight:900;line-height:0.9;letter-spacing:-0.05em;text-transform:uppercase;font-size:clamp(2.4rem,10vw,7.5rem)}
+  .hero-title span{display:block}
+  .hero-stroke{-webkit-text-stroke:1.5px var(--accent);-webkit-text-fill-color:transparent;color:var(--accent)}
+  .hero-desc{font-size:1.05rem;color:var(--text-mid);line-height:1.8;font-weight:300;max-width:460px;margin:2rem 0}
+  .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-badge{position:absolute;top:10%;right:5%;opacity:0}
+  .hide-mobile{display:none}
+
+  @media(min-width:768px){
+    .hero-grid{grid-template-columns:1fr 1fr}
+    .hero-content{padding:8rem 4rem 4rem}
+    .hero-img-col{display:block}
+    .hide-mobile{display:block}
+  }
+
+  /* Marquee */
+  .marquee-wrap{padding:0.8rem 0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);overflow:hidden;white-space:nowrap}
+  .marquee-track{display:inline-flex;gap:2.5rem}
+  .marquee-item{font-size:0.65rem;font-weight:700;color:var(--accent);letter-spacing:0.18em}
+
+  /* AI section */
+  .ai-grid{display:grid;grid-template-columns:1fr}
+  .ai-img-col{display:none}
+  .ai-content-col{background:var(--accent);color:#fff;padding:clamp(2.5rem,5vw,4rem);display:flex;flex-direction:column;justify-content:center}
+  .ai-body{font-size:1rem;line-height:1.85;font-weight:300;opacity:0.85;margin-bottom:2rem}
+  .ai-cards{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+  .ai-card{padding:1rem;background:rgba(255,255,255,0.08);border-radius:6px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s var(--ease)}
+  .ai-card:hover{background:rgba(255,255,255,0.14);transform:translateY(-2px)}
+  .ai-card h4{font-family:'Archivo',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:0.2rem}
+  .ai-card p{font-size:0.78rem;opacity:0.6;font-weight:300;line-height:1.5}
+  .ai-img-content{padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:flex-end;min-height:500px}
+
+  @media(min-width:768px){
+    .ai-grid{grid-template-columns:1fr 1fr}
+    .ai-img-col{display:block}
+  }
+
+  /* Stats */
+  .stats-section{background:var(--stats-bg);color:var(--stats-text);position:relative;overflow:hidden;transition:background 0.5s,color 0.5s}
+  .stats-watermark{position:absolute;font-weight:900;color:var(--stats-watermark);line-height:1;letter-spacing:-0.06em;pointer-events:none;font-size:8rem;right:-5%;top:0%}
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+  .stat-item{border-left:2px solid var(--stats-accent);padding-left:1.2rem}
+  .stat-number{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;line-height:1;letter-spacing:-0.04em}
+  .stat-label{font-weight:600;margin-top:0.3rem;font-size:0.9rem}
+  .stat-sub{font-size:0.58rem;color:var(--stats-text-mid);margin-top:0.15rem}
+
+  @media(min-width:768px){
+    .stat-grid{grid-template-columns:repeat(4,1fr)}
+    .stats-watermark{font-size:clamp(14rem,26vw,24rem);right:-3%;top:-12%}
+  }
+
+  /* Timeline */
+  .timeline{padding-left:3rem;position:relative}
+  .timeline-line{position:absolute;left:10px;top:0;bottom:0;width:1px;background:linear-gradient(var(--accent),var(--border));transform:translateX(-50%)}
+  .timeline-item{position:relative;margin-bottom:3rem}
+  .timeline-item:last-child{margin-bottom:0}
+  .timeline-dot{position:absolute;left:-3rem;top:0.2rem;width:20px;height:20px;border-radius:50%;border:2px solid var(--accent);background:var(--accent);display:flex;align-items:center;justify-content:center}
+  .timeline-dot-inner{width:5px;height:5px;border-radius:50%;background:#fff}
+  .timeline-step-title{font-weight:800;font-size:clamp(1.3rem,3vw,1.7rem);text-transform:uppercase;letter-spacing:-0.03em;margin:0.3rem 0}
+
+  @media(min-width:768px){.timeline{padding-left:4rem}}
+
+  /* CTA */
+  .cta-section{text-align:center;position:relative;padding-top:6rem;padding-bottom:6rem;border-top:1px solid var(--border)}
+  .cta-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:900;color:var(--accent);opacity:0.04;white-space:nowrap;letter-spacing:-0.06em;font-size:clamp(6rem,18vw,16rem);pointer-events:none}
+  .cta-mega{font-weight:900;text-transform:uppercase;letter-spacing:-0.05em;line-height:0.92;font-size:clamp(2.2rem,9vw,8rem);margin:1.2rem 0}
+</style>
+
+<script>
+  import { heroTimeline, heroBento, marqueeAnimation, revealBatch, revealElement, timelineLineDraw } from '../scripts/gsap-init';
+
+  // Hero coordinated timeline (includes badge entrance)
+  heroTimeline();
+
+  // Bento grid entrance + 3D tilt
+  heroBento('#hero-bento');
+
+  // GSAP-powered marquee with pause-on-hover
+  marqueeAnimation('.marquee-track', '.marquee-wrap');
+
+  // Section reveals on scroll
+  revealBatch('.section-label', '#servicios');
+  revealBatch('.section-title', '#servicios');
+  revealBatch('.ai-card');
+  revealBatch('.section-label, .section-title', '#ia');
+  revealBatch('.stat-item');
+  revealBatch('.section-label, .section-title', '#cifras');
+  revealBatch('.timeline-item');
+
+  // AI section reveal as a whole
+  revealElement('.ai-content-col');
+
+  // CTA opacity fade
+  revealElement('.cta-section', { y: 0 });
+
+  // Timeline line-draw on scroll
+  timelineLineDraw('.timeline-line', '.timeline');
+</script>
